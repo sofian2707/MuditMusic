@@ -1,0 +1,61 @@
+<div *ngIf="identity" class="navigation col-lg-1">
+    <h1>
+        {{title}}
+    </h1>
+</div>
+
+<div *ngIf="identity" class="navigation col-lg-11">
+    <p> Estas logueado en la aplicacion</p>
+</div>
+
+<div class="container" *ngIf="!identity">
+    <div class="row align-items-start" style="padding-top: 5%;">
+      <div class="col">
+        <h1 class="title text-center">Identificate</h1>
+        <div >
+
+        </div>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+              <input type="email" class="form-control" #email="ngModel" [(ngModel)]="user.email" name="email" aria-describedby="emailHelp" required>
+              <span *ngIf="!email.valid && (email.dirty || email.touched)"> Email obligatorio</span>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" #password="ngModel" name="password" [(ngModel)]="user.password" >
+              
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+      </div>
+
+
+
+      <div class="col">
+        <h1 class="title text-center">Registrate</h1>
+        <form>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre">
+                <label>Nombre</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" placeholder="email">
+                <label>Apellido</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="email">
+                <label>Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" placeholder="contraseña">
+                <label>Contraseña</label>
+              </div>
+              <div class="form-floating mb-3">
+                <button type="submit" class="btn btn-secondary ">Registrarse</button>
+              </div>
+          </form>
+      </div>
+    </div>
+</div>
+
