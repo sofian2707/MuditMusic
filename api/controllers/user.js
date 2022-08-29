@@ -75,7 +75,7 @@ function loginUser(req, res){
 
  var email = params.email;
  var password = params.password;
-
+ 
 
  /* Encontrar al usuario por correo electrónico */
  User.findOne({email: email.toLowerCase()}, (err, user) => {
@@ -92,11 +92,8 @@ function loginUser(req, res){
                     //devolver los datos del usuario logueado
                     if(params.gethash){
                         //devolver un token de jwt
-                        res.status(200).send({
-                            token: jwt.createToken(user)
-                        })
-                    }else{
-                        res.status(200).send({user});
+                       // res.status(200).send({token: jwt.createToken(user)});
+                        res.status(200).send({user, token: jwt.createToken(user)});
                     }
                 }else{
                     res.status(404).send({message: 'El usuario no ha podido loguearse'});

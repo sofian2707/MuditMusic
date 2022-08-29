@@ -13,7 +13,6 @@ const artist = require('../models/artist');
 //Obtener artista
 function getArtist(req, res){
     var artistId = req.params.id;
-
     Artist.findById(artistId, (err, artist) =>{
         if(err){
             res.status(500).send({message: 'Error en la peticion'});
@@ -24,13 +23,12 @@ function getArtist(req, res){
                 res.status(200).send({artist});
             }
         }
-    })
+    });
 }
 
 //Guardar artista
 function saveArtist(req, res){
     var artist = new Artist();
-
     var params = req.body;
     artist.name = params.name;
     artist.description = params.description;

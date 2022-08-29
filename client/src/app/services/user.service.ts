@@ -20,7 +20,7 @@ import {map} from 'rxjs/operators';
         this.url = GLOBAL.url;
     }
 
-    signup(user_to_login: any, gethash='null'){
+    signup(user_to_login: any, gethash='null'): Observable<any>{
         if(gethash !=null){
             user_to_login.gethash = gethash;
         }
@@ -31,6 +31,8 @@ import {map} from 'rxjs/operators';
        return this.http.post(this.url+'login',params, {headers: headers});
     }
 
+
+    
 
   }
 

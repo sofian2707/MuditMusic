@@ -12,8 +12,10 @@
     <div class="row align-items-start" style="padding-top: 5%;">
       <div class="col">
         <h1 class="title text-center">Identificate</h1>
-        <div >
-
+        <div *ngIf="errorMessage">
+          <div class="alert alert-danger" role="alert">
+            <strong>Error: </strong>{{errorMessage.error.message}}
+          </div>
         </div>
         <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
