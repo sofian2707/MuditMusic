@@ -1,11 +1,7 @@
-<div *ngIf="identity" class="navigation col-lg-1">
-    <h1>
-        {{title}}
-    </h1>
-</div>
-
-<div *ngIf="identity" class="navigation col-lg-11">
-    <p> Estas logueado en la aplicacion</p>
+<div *ngIf="identity" class="container-fluid">
+    <h1>{{title}}</h1>
+    <p>Hola {{identity.name}} {{identity.surname}} , bienvenido</p>
+    <button type="button" class="btn btn-danger" (click)="logout()">Cerrar sesion</button>
 </div>
 
 <div class="container" *ngIf="!identity">

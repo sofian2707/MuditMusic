@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from './models/user';
 import { Observable } from "rxjs";
 import { UserService } from './services/user.service';
@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  providers: [UserService]
+  providers: [UserService],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit{
   title = 'Musify';
@@ -23,7 +24,11 @@ constructor(private UserService: UserService){
 }
 
 ngOnInit(){
- 
+ this.identity= this.UserService.getIdentity();
+ this.token= this.UserService.getToken();
+
+ console.log(this.identity);
+ console.log(this.token);
 }
 
 public onSubmit(){
@@ -40,6 +45,8 @@ public onSubmit(){
         alert("El usuario no esta correctamente identificado");
        }else{
         //Crear elemento en el localstorage para tener al usuario en sesion
+        localStorage.setItem('identity', JSON.stringify(identity));
+
         //conseguir token para enviarselo a cada peticion http
         this.UserService.signup(this.user, 'true').subscribe({
           next: (response) => {
@@ -50,8 +57,10 @@ public onSubmit(){
               alert("El token no se genero correctamente");
             }else{
               //crear elemento en el localstorage para tener token disponible
+              localStorage.setItem('token', token);
               console.log(token);
               console.log(identity);
+              
             }
           },
           error: (error) => {
@@ -75,7 +84,13 @@ public onSubmit(){
   })
  }
 
-
+ logout(){
+  localStorage.removeItem('identity');
+  localStorage.removeItem('token');
+  localStorage.clear();
+  this.identity= null;
+  this.token = null;
+ }
 
 
 

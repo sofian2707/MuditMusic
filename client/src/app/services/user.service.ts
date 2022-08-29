@@ -13,8 +13,9 @@ import {map} from 'rxjs/operators';
   })
 
   export class UserService {
-
-    url:string ="";
+    public identity:any;
+    public token:any;
+    public url:string;
 
     constructor(private http: HttpClient) {
         this.url = GLOBAL.url;
@@ -30,9 +31,47 @@ import {map} from 'rxjs/operators';
        let headers = new HttpHeaders().set('Content-Type', 'application/json');
        return this.http.post(this.url+'login',params, {headers: headers});
     }
+   
 
+    getIdentity(){
+      let identity = JSON.parse(localStorage.getItem('identity')!);
+
+      if(identity != "undefined"){
+        this.identity = identity;
+      }else{
+        this.identity = null;
+      }
+      return this.identity;
+    }
 
     
+    
+    getToken(){
+      let token = (localStorage.getItem('token')!);
+
+      if(token != "undefined"){
+        this.token = token;
+      }else{
+        this.token = null;
+      }
+      return this.token;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   }
 
