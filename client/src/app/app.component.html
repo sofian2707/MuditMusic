@@ -4,9 +4,9 @@
     <button type="button" class="btn btn-danger" (click)="logout()">Cerrar sesion</button>
 </div>
 
-<div class="container" *ngIf="!identity">
+<div class="container-fluid" *ngIf="!identity">
     <div class="row align-items-start" style="padding-top: 5%;">
-      <div class="col">
+      <div class="identidad col">
         <h1 class="title text-center">Identificate</h1>
         <div *ngIf="errorMessage">
           <div class="alert alert-danger" role="alert">
@@ -21,8 +21,8 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" #password="ngModel" name="password" [(ngModel)]="user.password" >
-              
+              <input type="password" class="form-control" #password="ngModel" name="password" [(ngModel)]="user.password" required>
+              <span *ngIf="!password.valid && (password.dirty || password.touched)"> Ingrese la contraseña</span>
             </div>
             <button type="submit" class="btn btn-primary">Ingresar</button>
           </form>
@@ -30,24 +30,33 @@
 
 
 
-      <div class="col">
+      <div class="registrar col">
         <h1 class="title text-center">Registrate</h1>
-        <form>
+        <div *ngIf="alertRegister">
+          <div class="alert alert-primary" role="alert">
+            {{alertRegister}}
+          </div>
+        </div>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control"  placeholder="nombre">
+                <input type="text" class="form-control" placeholder="nombre" #name="ngModel" [(ngModel)]="user_register.name" name="name" required>
                 <label>Nombre</label>
+                <span *ngIf="!name.valid && (name.dirty || name.touched)"> Nombre obligatorio</span>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" placeholder="email">
+                <input type="text" class="form-control" placeholder="apellido" #surname="ngModel" [(ngModel)]="user_register.surname" name="surname" required>
                 <label>Apellido</label>
+                <span *ngIf="!surname.valid && (surname.dirty || surname.touched)"> Apellido obligatorio</span>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control"  placeholder="email">
+                 <input type="email" class="form-control" #emailr="ngModel" [(ngModel)]="user_register.email" name="email" placeholder="email" required>
                 <label>Email</label>
+                <span *ngIf="!emailr.valid && (emailr.dirty || emailr.touched)"> Email obligatorio</span>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" placeholder="contraseña">
+                <input type="password" class="form-control" placeholder="contraseña" #passwordr="ngModel" name="password" [(ngModel)]="user_register.password" required>
                 <label>Contraseña</label>
+                <span *ngIf="!passwordr.valid && (passwordr.dirty || passwordr.touched)"> Contraseña obligatoria</span>
               </div>
               <div class="form-floating mb-3">
                 <button type="submit" class="btn btn-secondary ">Registrarse</button>

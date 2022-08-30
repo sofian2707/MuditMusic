@@ -16,6 +16,7 @@ import {map} from 'rxjs/operators';
     public identity:any;
     public token:any;
     public url:string;
+    
 
     constructor(private http: HttpClient) {
         this.url = GLOBAL.url;
@@ -31,11 +32,17 @@ import {map} from 'rxjs/operators';
        let headers = new HttpHeaders().set('Content-Type', 'application/json');
        return this.http.post(this.url+'login',params, {headers: headers});
     }
+
+    register(user_to_register: any): Observable<any>{
+      //Convertir a string objeto que se recibe
+      let params = JSON.stringify(user_to_register);
+      let headers = new HttpHeaders().set('Content-Type', 'application/json');
+      return this.http.post(this.url+'register', params, {headers: headers});
+ }
    
 
     getIdentity(){
       let identity = JSON.parse(localStorage.getItem('identity')!);
-
       if(identity != "undefined"){
         this.identity = identity;
       }else{
@@ -48,15 +55,15 @@ import {map} from 'rxjs/operators';
     
     getToken(){
       let token = (localStorage.getItem('token')!);
-
       if(token != "undefined"){
         this.token = token;
       }else{
         this.token = null;
       }
       return this.token;
-
     }
+
+  
 
 
 

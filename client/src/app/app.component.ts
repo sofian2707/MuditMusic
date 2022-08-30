@@ -14,13 +14,16 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppComponent implements OnInit{
   title = 'Musify';
   public user: User;
+  public user_register: User;
   public identity: any;
   public token: any;
   public errorMessage: any;
+  public alertRegister: any;
 
 
 constructor(private UserService: UserService){
   this.user = new User('','','','','','ROLE_USER','');
+  this.user_register = new User('','','','','','ROLE_USER','');
 }
 
 ngOnInit(){
@@ -93,7 +96,29 @@ public onSubmit(){
  }
 
 
+ onSubmitRegister(){
+  console.log(this.user_register);
+  this.UserService.register(this.user_register).subscribe({
+    next: (response) => {
+      let user = response.user;
+      this.user_register = user;
 
+      if(!user._id){
+        this.alertRegister = 'Error al registrarse';
+      }else{
+        this.alertRegister = 'El registro se ha realizado correctamente, identificate con '+this.user_register.email;
+        this.user_register = new User('','','','','','ROLE_USER','');
+      }
+    },
+    error: (error) => {
+      var alertRegister:any = error;
+      if(alertRegister != null){
+        this.alertRegister = error;
+        console.log(alertRegister);
+      }
+    }
+    });
+ }
 
 
 
