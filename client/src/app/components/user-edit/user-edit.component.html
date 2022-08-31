@@ -1,0 +1,27 @@
+
+<div class="contenedorForm container-fluid" *ngIf="identity">
+    <hr class="my-4">
+    <div *ngIf="alertMessage">
+        <div class="alert alert-primary" role="alert">
+          {{alertMessage}}
+        </div>
+      </div>
+      <form #userUpdateForm="ngForm" (ngSubmit)="onSubmit()">
+        <legend>{{titulo}}</legend>
+          <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="nombre" #name="ngModel" [(ngModel)]="user.name" name="name" required>
+              <label>Nombre</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="apellido" #surname="ngModel" [(ngModel)]="user.surname" name="surname" required>
+              <label>Apellido</label>
+            </div>
+            <div class="form-floating mb-3">
+               <input type="email" class="form-control" #emailr="ngModel" [(ngModel)]="user.email" name="email" placeholder="email" required>
+              <label>Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <button type="submit" class="btn btn-secondary ">Guardar cambios</button>
+            </div>
+        </form>
+</div>

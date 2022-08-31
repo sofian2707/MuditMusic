@@ -16,12 +16,12 @@ import {map} from 'rxjs/operators';
     public identity:any;
     public token:any;
     public url:string;
-    
 
     constructor(private http: HttpClient) {
         this.url = GLOBAL.url;
     }
 
+    //INICIAR SESION
     signup(user_to_login: any, gethash='null'): Observable<any>{
         if(gethash !=null){
             user_to_login.gethash = gethash;
@@ -33,14 +33,25 @@ import {map} from 'rxjs/operators';
        return this.http.post(this.url+'login',params, {headers: headers});
     }
 
+    
+    //REGISTRO 
     register(user_to_register: any): Observable<any>{
       //Convertir a string objeto que se recibe
       let params = JSON.stringify(user_to_register);
       let headers = new HttpHeaders().set('Content-Type', 'application/json');
       return this.http.post(this.url+'register', params, {headers: headers});
  }
+
+ //ACTUALIZAR USUARIO 
+updateUser(user_to_update: any): Observable<any>{
+  let params = JSON.stringify(user_to_update);
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', this.getToken());
+      return this.http.put(this.url+'update-user/'+user_to_update._id, params, {headers: headers});
+}
    
 
+  //OBTENER IDENTIDAD
     getIdentity(){
       let identity = JSON.parse(localStorage.getItem('identity')!);
       if(identity != "undefined"){
@@ -52,8 +63,8 @@ import {map} from 'rxjs/operators';
     }
 
     
-    
-    getToken(){
+    //OBTENER TOKEN
+    getToken(): any{
       let token = (localStorage.getItem('token')!);
       if(token != "undefined"){
         this.token = token;
@@ -63,7 +74,6 @@ import {map} from 'rxjs/operators';
       return this.token;
     }
 
-  
 
 
 

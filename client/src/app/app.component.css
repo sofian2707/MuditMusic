@@ -6,3 +6,8 @@
 span{
     color:rgb(143, 4, 4);
 }
+
+.busqueda{
+    display: flex;
+  align-items: flex-end;
+}

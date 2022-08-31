@@ -35,7 +35,6 @@ ngOnInit(){
 }
 
 public onSubmit(){
-  console.log(this.user);
 
   //Conseguir datos del usuario identificado
   this.UserService.signup(this.user).subscribe({
@@ -61,9 +60,8 @@ public onSubmit(){
             }else{
               //crear elemento en el localstorage para tener token disponible
               localStorage.setItem('token', token);
-              console.log(token);
-              console.log(identity);
-              
+              //base para iniciar sesion otra vez
+              this.user = new User('','','','','','ROLE_USER','');
             }
           },
           error: (error) => {
@@ -116,8 +114,7 @@ public onSubmit(){
         this.alertRegister = error;
         console.log(alertRegister);
       }
-    }
-    });
+    }});
  }
 
 
