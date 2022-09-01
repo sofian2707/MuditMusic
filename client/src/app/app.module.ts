@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { ArtistListComponent } from './components/artist-list/artist-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserEditComponent
+    UserEditComponent,
+    ArtistListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

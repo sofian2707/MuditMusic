@@ -5,13 +5,20 @@
       <h1 class="titlewhite">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><ellipse cx="26.5" cy="26.843" fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" rx="5.015" ry="5.867" transform="rotate(-75.841 26.5 26.843)"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M32.188 28.278L37.652 6.56c-.906 3.588 6.391 1.83 5.527 5.255"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M31.888 17.178a10.982 10.982 0 1 0 4.734 5.774"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M33.207 11.935a16.266 16.266 0 1 0 5.203 3.91"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M26.25 5.125a21.5 21.5 0 0 0-21.5 21.5"/></svg>
       {{title}}</h1></li>
-    <li><a class="item" href="">
+    <li><a class="item" href="" >
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 18">
         <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
       </svg>
       Inicio</a></li>
-    <li><a class="item" href="">Artistas</a></li>
-    <li><a class="item" href="">Album</a></li>
+    <li><a class="item" href="" [routerLink]="['/artista']" [routerLinkActive]="['actived']">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15"><path fill="currentColor" d="M12.1 2.952a2.988 2.988 0 0 0-5.11 1.965l3.142 3.142A2.988 2.988 0 0 0 12.1 2.952Zm-7.428 5.3L2.55 10.377a1 1 0 0 0 0 1.414l.707.707a1 1 0 0 0 1.414 0l2.121-2.121l2.122-2.122l-2.121-2.121Zm.741 2.087l-.707-.707l2.087-2.084l.707.707Z"/></svg>
+      Artistas</a></li>
+    <li><a class="item" href=""[routerLinkActive]="['actived']">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke-width="1.5"><path stroke="currentColor" d="M2 17.4V2.6a.6.6 0 0 1 .6-.6h14.8a.6.6 0 0 1 .6.6v14.8a.6.6 0 0 1-.6.6H2.6a.6.6 0 0 1-.6-.6Z"/><path stroke="currentColor" stroke-linecap="round" d="M8 22h13.4a.6.6 0 0 0 .6-.6V8"/><path fill="currentColor" d="M11 12.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0Z"/><path stroke="currentColor" stroke-linecap="round" d="M11 12.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0Zm0 0V6.6a.6.6 0 0 1 .6-.6H13"/></g></svg>
+      Album</a></li>
+      <li><a class="item" href=""[routerLinkActive]="['actived']">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1664 1664"><path fill="currentColor" d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90z"/></svg>
+        Buscar</a></li>
     
     
     <li class="dropdown">
@@ -21,24 +28,25 @@
         <div class="dropdown-content">
           <a> <img id="image-logged" src="{{url+'get-image-user/'+identity.image}}"></a>
           <a class="itemUser" href="">Bienvenido <span id="identity_name">{{identity.name}}</span></a>
-          <a class="itemUser" href="" [routerLink]="['/datos']"> Mis datos
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear-wide" viewBox="0 0 16 16">
-              <path d="M8.932.727c-.243-.97-1.62-.97-1.864 0l-.071.286a.96.96 0 0 1-1.622.434l-.205-.211c-.695-.719-1.888-.03-1.613.931l.08.284a.96.96 0 0 1-1.186 1.187l-.284-.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 1-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 1 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 1 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 1 1.622.434l.071.286c.243.97 1.62.97 1.864 0l.071-.286a.96.96 0 0 1 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 1 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 1 .434-1.622l.286-.071c.97-.243.97-1.62 0-1.864l-.286-.071a.96.96 0 0 1-.434-1.622l.211-.205c.719-.695.03-1.888-.931-1.613l-.284.08a.96.96 0 0 1-1.187-1.186l.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 1-1.622-.434L8.932.727zM8 12.997a4.998 4.998 0 1 1 0-9.995 4.998 4.998 0 0 1 0 9.996z"/>
-            </svg>
+          <a class="itemUser" href="" [routerLink]="['/datos'] "[routerLinkActive]="['actived']"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5z"><animateTransform attributeName="transform" attributeType="XML" dur="10s" from="0 12 12" repeatCount="indefinite" to="360 12 12" type="rotate"/></path></svg>
+            Mis datos
           </a>
-          <a href="" (click)="logout()">Cerrar sesion</a>
+          <a href="" (click)="logout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-2a1 1 0 0 0 0 2h1v12h-1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Zm-7.2 3.4a1 1 0 0 0-1.6 1.2L12 11H4a1 1 0 0 0 0 2h8.09l-1.72 2.44a1 1 0 0 0 .24 1.4a1 1 0 0 0 .58.18a1 1 0 0 0 .81-.42l2.82-4a1 1 0 0 0 0-1.18Z"/></svg>
+            Cerrar sesion</a>
         </div>
     </li>
   </ul>
 </nav>
 
-  <div style="margin-left:17%;padding:1px 16px;height:100%;">
+  <div [class.hidden]="!identity" style="margin-left:17%; padding:0px 16px; background:linear-gradient(180deg, #8AC1C1 0%, #738FB0 100%); height: 100vh;">
     <router-outlet></router-outlet>
   </div>
   
 </div>
 
-<div class="container-fluid" *ngIf="!identity">
+<div class="container-fluid" *ngIf="!identity" style="height: 100vh;">
     <div class="row align-items-start" style="padding-top: 5%;">
       <div class="identidad col">
         <h1 class="title text-center">Identificate</h1>

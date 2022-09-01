@@ -1,0 +1,11 @@
+<div class="principal" *ngIf="identity">
+    <h1>{{titulo}}</h1>
+
+
+<!--TEMPLATE ROLE ADMIN-->
+<div *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+    <button type="submit" class="btn btn-primary">Añadir artista</button>
+</div>
+
+</div>
+

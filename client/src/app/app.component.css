@@ -1,10 +1,16 @@
 *{
     font-family: 'Poppins';
-    word-break:break-all;
+    word-break: break-word;
+    word-wrap: word-break;
 }
 
+
+
 .title{
-    margin-bottom: 6%;
+    margin: 0 0 30px;
+    padding: 0;
+    color: rgb(14, 13, 13);
+    text-align: center;
 }
 
 
@@ -16,7 +22,7 @@
     color: #FFFF;
     font-style: normal;
     font-weight: 650;
-    font-size: 38px;
+    font-size: 35px;
     text-align: center;
 }
 
@@ -71,7 +77,7 @@ li a:hover:not(.active) {
 }
 
 .dropdown{
-    padding-top: 50%;
+    margin-top: 13%;
     word-break:break-all;
 }
 
@@ -83,7 +89,7 @@ li a:hover:not(.active) {
 
 .dropdown-content {
     display: none;
-    box-shadow: 0px 8px 16px 0px rgba(178, 252, 252, 0.596);
+    box-shadow: 0px 8px 16px 0px rgba(124, 243, 243, 0.374);
 }
 
 .dropdown-content a {
@@ -111,4 +117,20 @@ li a:hover:not(.active) {
 
 .user, circle{
     fill: #ffffff33;
+}
+
+@keyframes anim{
+    0% {background-color: rgba(0, 255, 208, 0.553);} /*Amarillo*/
+   0% {background-color: rgba(0, 153, 255, 0.24);} /*Naranja*/
+   50% {background-color: rgba(0, 0, 0, 0.635);} /*Negro*/
+   25% {background-color: rgba(0, 255, 208, 0.422);} /*Amarillo*/
+  0% {background-color: rgba(0, 153, 255, 0.24);} /*Naranja*/
+}
+
+
+.actived{
+    color: rgba(255, 255, 255, 0.74);
+    animation-name: anim;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
 }

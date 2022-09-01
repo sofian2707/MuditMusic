@@ -4,7 +4,8 @@ import { Observable } from "rxjs";
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GLOBAL } from './services/global';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit{
   public url: string;
 
 
-constructor(private UserService: UserService, private router: Router){
+constructor(private UserService: UserService, private router: Router, private route: ActivatedRoute,){
   this.user = new User('','','','','','ROLE_USER','');
   this.user_register = new User('','','','','','ROLE_USER','');
   this.identity= this.UserService.getIdentity();
