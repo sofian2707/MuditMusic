@@ -5,16 +5,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AppComponent } from './app.component';
 import { ArtistListComponent } from './components/artist-list/artist-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo:'artista',
+    redirectTo:'home',
     pathMatch:'full'
   },
+  { path: 'home', component: HomeComponent },
   { path: 'datos', component: UserEditComponent },
   { path: 'artista', component: ArtistListComponent},
-  { path: '**', component: ArtistListComponent},
+  { path: '**', component: HomeComponent},
 ];
 
 

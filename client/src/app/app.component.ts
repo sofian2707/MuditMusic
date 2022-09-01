@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   providers: [UserService],
   encapsulation: ViewEncapsulation.None
 })
+
 export class AppComponent implements OnInit{
   title = 'Musify';
   public user: User;
@@ -98,6 +99,7 @@ public onSubmit(){
   localStorage.clear();
   this.identity= null;
   this.token = null;
+  this.router.navigate(['/']);
  }
 
 

@@ -5,7 +5,7 @@
       <h1 class="titlewhite">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><ellipse cx="26.5" cy="26.843" fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" rx="5.015" ry="5.867" transform="rotate(-75.841 26.5 26.843)"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M32.188 28.278L37.652 6.56c-.906 3.588 6.391 1.83 5.527 5.255"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M31.888 17.178a10.982 10.982 0 1 0 4.734 5.774"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M33.207 11.935a16.266 16.266 0 1 0 5.203 3.91"/><path fill="none" stroke="#2ef0f3" stroke-linecap="round" stroke-linejoin="round" d="M26.25 5.125a21.5 21.5 0 0 0-21.5 21.5"/></svg>
       {{title}}</h1></li>
-    <li><a class="item" href="" >
+    <li><a class="item" href="" [routerLink]="['/home']" [routerLinkActive]="['actived']">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 18">
         <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
       </svg>
@@ -42,6 +42,7 @@
 
   <div [class.hidden]="!identity" style="margin-left:17%; padding:0px 16px; background:linear-gradient(180deg, #8AC1C1 0%, #738FB0 100%); height: 100vh;">
     <router-outlet></router-outlet>
+ 
   </div>
   
 </div>
