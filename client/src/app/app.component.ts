@@ -3,6 +3,8 @@ import { User } from './models/user';
 import { Observable } from "rxjs";
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GLOBAL } from './services/global';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,19 +21,23 @@ export class AppComponent implements OnInit{
   public token: any;
   public errorMessage: any;
   public alertRegister: any;
+  public url: string;
 
 
-constructor(private UserService: UserService){
+constructor(private UserService: UserService, private router: Router){
   this.user = new User('','','','','','ROLE_USER','');
   this.user_register = new User('','','','','','ROLE_USER','');
+  this.identity= this.UserService.getIdentity();
+  this.token= this.UserService.getToken();
+  this.url = GLOBAL.url;
+  
 }
 
 ngOnInit(){
- this.identity= this.UserService.getIdentity();
- this.token= this.UserService.getToken();
-
  console.log(this.identity);
  console.log(this.token);
+
+ 
 }
 
 public onSubmit(){
@@ -116,7 +122,6 @@ public onSubmit(){
       }
     }});
  }
-
 
 
 

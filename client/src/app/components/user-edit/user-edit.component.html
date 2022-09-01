@@ -1,5 +1,10 @@
 
 <div class="contenedorForm container-fluid" *ngIf="identity">
+  <div class="container-sm" *ngIf="user.image && user.image != 'null'">
+    <img src="{{url+'get-image-user/'+user.image}}" class="img-thumbnail">
+    <figcaption class="figure-caption" style="padding-left: 5%;">{{user.name}}</figcaption>
+  </div>
+
     <hr class="my-4">
     <div *ngIf="alertMessage">
         <div class="alert alert-primary" role="alert">
@@ -19,6 +24,10 @@
             <div class="form-floating mb-3">
                <input type="email" class="form-control" #emailr="ngModel" [(ngModel)]="user.email" name="email" placeholder="email" required>
               <label>Email</label>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Subir imagen de usuario</label>
+              <input class="form-control" type="file" id="formFile" (change)="fileChangeEvent($event)">
             </div>
             <div class="form-floating mb-3">
               <button type="submit" class="btn btn-secondary ">Guardar cambios</button>
