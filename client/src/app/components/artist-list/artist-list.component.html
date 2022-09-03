@@ -3,9 +3,10 @@
 
 
 <!--TEMPLATE ROLE ADMIN-->
-<div *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+<div [routerLink]="['/crear-artista']" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
     <button type="submit" class="btn btn-primary">Añadir artista</button>
 </div>
+
 
 </div>
 

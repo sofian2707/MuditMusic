@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ArtistListComponent } from './components/artist-list/artist-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { ArtistAddComponent } from './components/artist-add/artist-add.component';
 
 
 
@@ -15,7 +16,9 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     UserEditComponent,
     ArtistListComponent,
-    HomeComponent
+    HomeComponent,
+    ArtistAddComponent,
+    
   ],
   imports: [
     BrowserModule,
