@@ -109,7 +109,6 @@ public onSubmit(){
     next: (response) => {
       let user = response.user;
       this.user_register = user;
-
       if(!user._id){
         this.alertRegister = 'Error al registrarse';
       }else{

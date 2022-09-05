@@ -2,8 +2,8 @@
 
 //Cargar librerias 
 var express = require('express');
+var cors = require('cors');
 var bodyParser = require('body-parser');
-
 var app = express();
 
 //cargar rutas
@@ -12,8 +12,12 @@ var artist_routes = require('./routes/artist');
 var album_routes = require('./routes/album');
 var song_routes = require('./routes/song');
 
+app.use(cors({
+    origin: '*',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
 
-
+app.use(cors());
 //para que funcione
 app.use(bodyParser.urlencoded({extended:false}));
 //convertir a json los datos
@@ -25,8 +29,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-
     next();
+    
 });
 
 

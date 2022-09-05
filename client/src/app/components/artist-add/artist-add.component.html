@@ -1,4 +1,12 @@
+
 <div style="padding-top:3%; width: 40%;">
+ 
+  <div *ngIf="alertMessage">
+      <div class="alert alert-primary" role="alert">
+        {{alertMessage}}
+      </div>
+  </div>
+
     <legend>Agregar nuevo artista</legend>
       <form #formArtist="ngForm" (ngSubmit)="onSubmit()">
       
@@ -20,3 +28,7 @@
 
         </form>
     </div>
+
+  
+
+

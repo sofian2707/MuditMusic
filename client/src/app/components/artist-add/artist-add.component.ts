@@ -18,6 +18,7 @@ public artist!: Artist;
 public identity;
 public token;
 public url: string;
+public alertMessage: any;
 
 
   constructor(
@@ -30,16 +31,32 @@ public url: string;
     this.identity= this.UserService.getIdentity();
     this.token= this.UserService.getToken();
     this.url= GLOBAL.url;
-    this.artist = new Artist('','','')
+    this.artist = new Artist('','','');
   }
 
   ngOnInit(): void {
-    console.log('artist add cargado')
-    alert(this.ArtistService.addArtist())
   }
 
   onSubmit(){
-    console.log(this.artist)
+    console.log(this.artist);
+    this.ArtistService.addArtist(this.token, this.artist).subscribe({
+      next: (response) => {
+
+        if(!response.artist){
+          this.alertMessage= 'Error en el servidor';
+        }else{
+          this.alertMessage= 'Artista creado correctamente';
+          this.artist=response.artist;
+        }
+      },
+      error: (error) => {
+        var alertMessage:any = error;
+        if(alertMessage != null){
+          this.alertMessage = JSON.parse(error);
+          console.log(alertMessage);
+        }
+      }
+    })
   }
 
 
