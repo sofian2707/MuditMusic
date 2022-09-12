@@ -19,7 +19,7 @@ public identity;
 public token;
 public url: string;
 public alertMessage: any;
-
+public errorMessage: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +31,7 @@ public alertMessage: any;
     this.identity= this.UserService.getIdentity();
     this.token= this.UserService.getToken();
     this.url= GLOBAL.url;
-    this.artist = new Artist('','','');
+    this.artist = new Artist('','','','');
   }
 
   ngOnInit(): void {
@@ -47,13 +47,14 @@ public alertMessage: any;
         }else{
           this.alertMessage= 'Artista creado correctamente';
           this.artist=response.artist;
+          this.router.navigate(['/editar-artista/', response.artist._id ]);
         }
       },
       error: (error) => {
-        var alertMessage:any = error;
-        if(alertMessage != null){
-          this.alertMessage = JSON.parse(error);
-          console.log(alertMessage);
+        var errorMessage:any = error;
+        if(errorMessage != null){
+          this.errorMessage = JSON.parse(error);
+          console.log(errorMessage);
         }
       }
     })

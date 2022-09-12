@@ -1,34 +1,44 @@
+<!--TEMPLATE ADMIN -->
+<div style="padding-top:3%; width: 50%; height: 100vh;" *ngIf="identity && identity.role=='ROLE_ADMIN'">
+  <legend>Crear nuevo artista</legend>
 
-<div style="padding-top:3%; width: 40%;">
- 
   <div *ngIf="alertMessage">
-      <div class="alert alert-primary" role="alert">
-        {{alertMessage}}
-      </div>
+    <div class="alert alert-success" role="alert">
+      {{alertMessage}}
+    </div>
   </div>
 
-    <legend>Agregar nuevo artista</legend>
-      <form #formArtist="ngForm" (ngSubmit)="onSubmit()">
-      
-          <div class="form-floating mb-3">
-              <input type="text" class="form-control" placeholder="nombre" #name="ngModel" [(ngModel)]="artist.name" name="name" required>
-              <label>Nombre</label>
-              <span *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
-          </div>
+  <div *ngIf="errorMessage">
+    <div class="alert alert-danger" role="alert">
+      {{errorMessage}}
+    </div>
+  </div>
 
-          <div class="form-group mb-3">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #description="ngModel" [(ngModel)]="artist.description" name="description" required></textarea>
-            <span *ngIf="!description.valid && description.touched">La descripcion es obligatoria</span>
-          </div>
-    
-          <div class="button form-floating mb-3" >
-              <button type="submit" class="btn btn-secondary" [disabled]="!formArtist.form.valid">{{titulo}}</button>
-          </div>
-
-        </form>
+<form #formArtist="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" placeholder="nombre" #name="ngModel" [(ngModel)]="artist.name" name="name"
+        required>
+      <label>Nombre</label>
+      <span *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
     </div>
 
-  
+    <div class="form-group mb-3">
+      <label for="exampleFormControlTextarea1">Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #description="ngModel"
+        [(ngModel)]="artist.description" name="description" required></textarea>
+      <span *ngIf="!description.valid && description.touched">La descripcion es obligatoria</span>
+    </div>
+
+    <div class="button form-floating mb-3">
+      <button type="submit" class="btn btn-secondary" [disabled]="!formArtist.form.valid">{{titulo}}</button>
+    </div>
+
+  </form>
+</div>
 
 
+<!--TEMPLATE USUARIO -->
+<div style="padding-top:3%; width: 50%;" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+<h1>Error</h1>
+<p>No tienes acceso a esta parte de la aplicación</p>
+</div>

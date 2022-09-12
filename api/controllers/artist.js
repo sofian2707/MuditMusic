@@ -7,12 +7,13 @@ var mongoosePaginate = require('mongoose-pagination');
 var Artist = require('../models/artist');
 var Album = require('../models/album');
 var Song = require('../models/song');
-const artist = require('../models/artist');
+
 
 
 //Obtener artista
 function getArtist(req, res){
     var artistId = req.params.id;
+
     Artist.findById(artistId, (err, artist) =>{
         if(err){
             res.status(500).send({message: 'Error en la peticion'});
@@ -54,7 +55,7 @@ function getArtists(req, res){
     }else{
         var page = 1;
     }
-    var itemsPerPage = 3;
+    var itemsPerPage = 4;
     Artist.find().sort('name').paginate(page, itemsPerPage, function(err, artists, total){
         if(err){
             res.status(500).send({message: 'Error en la peticion'});
@@ -82,9 +83,9 @@ function updateArtist(req, res){
             res.status(500).send({message: 'Error al guardar el artista'});
         }else{
             if(!artistUpdated){
-                res.status(404).send({message: '·l artista no ha sido actualizado'});
+                res.status(404).send({message: 'El artista no ha sido actualizado'});
             }else{
-                res.status(404).send({artist: artistUpdated});
+                res.status(200).send({artist: artistUpdated});
             }
         }
 

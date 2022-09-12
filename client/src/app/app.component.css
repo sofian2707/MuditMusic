@@ -42,14 +42,14 @@ span{
 
 
 
-img{
+#image-logged{
     width: 50px;
     height: 50px; 
     border-radius: 100px;
 }
 
 
-ul {
+.navbarUl {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -60,7 +60,7 @@ ul {
     overflow: auto;
 }
 
-li a {
+#navbarLi a {
     display: block;
     color: #ffffff33;
     padding: 8px 0 8px 16px;
@@ -68,11 +68,11 @@ li a {
     font-weight: 600;
 }
 
-li a.active {
+#navbarLi a.active {
     color: rgba(255, 255, 255, 0.705);
 }
 
-li a:hover:not(.active) {
+#navbarLi a:hover:not(.active) {
     color: rgba(255, 255, 255, 0.614);
 }
 

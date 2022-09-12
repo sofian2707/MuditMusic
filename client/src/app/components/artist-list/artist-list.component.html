@@ -1,12 +1,88 @@
-<div class="principal" *ngIf="identity">
-    <h1>{{titulo}}</h1>
-
-
 <!--TEMPLATE ROLE ADMIN-->
-<div [routerLink]="['/crear-artista']" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
-    <button type="submit" class="btn btn-primary">Añadir artista</button>
-</div>
+<div class="principal" *ngIf="identity">
+
+	<!--TEMPLATE USUARIO -->
+	<div *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+	</div>
+
+		<div [routerLink]="['/crear-artista']" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+			<button type="submit" class="button-81 btn btn-primary">Añadir artista</button>
+		</div>
 
 
-</div>
+		<section>
 
+			<div class="container" style="margin-top:5%;">
+				<h1>Artistas</h1>
+				<div class="contenedorPage" >
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-end">
+							<li class="page-item">
+								<a class="page-link" [routerLink]="['/artistas', prev_page]">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+									</svg>
+								</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" [routerLink]="['/artistas', next_page]">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="grid">
+					<div class="cardItem" *ngFor="let artist of artists">
+						<img class="artistImg" src="{{ url + 'get-image-artist/' + artist.image }}">
+						<div class="caption">
+							<h2 [routerLink]="['/artista', artist._id]">{{artist.name}}</h2>
+							<p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+									preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 5h-3v5.5a2.5 2.5 0 0 1-5 0a2.5 2.5 0 0 1 2.5-2.5c.57 0 1.08.19 1.5.51V5h4v2zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z" />
+								</svg>
+								{{artist.description}}
+							</p>
+						</div>
+						<div class="btn-group" role="group" aria-label="Basic mixed styles example"
+							style="padding-top: 5%;" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+							<button type="button" class="btn btn-dark">Eliminar</button>
+							<button type="button" class="btn btn-light"
+								[routerLink]="['/editar-artista', artist._id]">Editar</button>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+
+		</section>
+
+
+
+
+<!--
+				
+
+						<div class="btn-group" role="group" aria-label="Basic mixed styles example"
+							style="padding-top: 3%;" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+							<button type="button" class="btn btn-danger">Eliminar</button>
+							<button type="button" class="btn btn-warning"
+								[routerLink]="['/editar-artista', artist._id]">Editar</button>
+						</div>
+
+					</div>
+				</div>
+
+			-->
+
+	
