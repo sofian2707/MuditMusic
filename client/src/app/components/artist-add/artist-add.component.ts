@@ -51,10 +51,10 @@ public errorMessage: any;
         }
       },
       error: (error) => {
-        var errorMessage:any = error;
-        if(errorMessage != null){
-          this.errorMessage = JSON.parse(error);
-          console.log(errorMessage);
+        var alertMessage:any = error;
+        if(alertMessage != null){
+          this.alertMessage = JSON.parse(error);
+          console.log(alertMessage);
         }
       }
     })

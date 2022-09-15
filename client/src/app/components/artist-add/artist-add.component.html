@@ -1,18 +1,13 @@
 <!--TEMPLATE ADMIN -->
-<div style="padding-top:3%; width: 50%; height: 100vh;" *ngIf="identity && identity.role=='ROLE_ADMIN'">
+<div class="principal" *ngIf="identity && identity.role=='ROLE_ADMIN'">
   <legend>Crear nuevo artista</legend>
 
   <div *ngIf="alertMessage">
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-info" role="alert">
       {{alertMessage}}
     </div>
   </div>
 
-  <div *ngIf="errorMessage">
-    <div class="alert alert-danger" role="alert">
-      {{errorMessage}}
-    </div>
-  </div>
 
 <form #formArtist="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-floating mb-3">

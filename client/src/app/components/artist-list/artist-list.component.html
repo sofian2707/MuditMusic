@@ -6,7 +6,7 @@
 	</div>
 
 		<div class="admin"[routerLink]="['/crear-artista']" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
-			<button type="submit" class="button-81 btn btn-primary">Añadir artista</button>
+			<button type="submit" class="button-12 btn btn-primary">Añadir artista</button>
 		</div>
 
 
@@ -55,9 +55,18 @@
 						</div>
 						<div class="btn-group" role="group" aria-label="Basic mixed styles example"
 							style="padding-top: 5%;" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
-							<button type="button" class="btn btn-dark">Eliminar</button>
+							<button type="button" class="btn btn-dark" 
+							(click)="onDeleteConfirm(artist._id)">Eliminar</button>
 							<button type="button" class="btn btn-light"
 								[routerLink]="['/editar-artista', artist._id]">Editar</button>
+						</div>
+						<div class="seguro" *ngIf="confirmado == artist._id">
+							<a (click)="onDeleteArtist(artist._id)" class="btn btn-sm btn-danger">
+								Eliminar
+							</a>
+							<a (click)="onCancelArtist()" class="btn btn-sm btn-primary">
+								Cancelar
+							</a>
 						</div>
 
 					</div>

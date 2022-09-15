@@ -11,5 +11,8 @@
 </div> 
 
 <div style=" width:100%; height:50%;">
-<p>hola</p>
+<div *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="admin">
+    <button class="button-12" role="button">Añadir album</button>
+</div>
+
 </div>
