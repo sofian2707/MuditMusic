@@ -1,5 +1,11 @@
 .contenedorForm{
-    padding-top:2%;
+    margin-left:18%; 
+    padding:0px 12px; 
+    padding-top: 2%;
+}
+
+form{
+width: 50%;
 }
 
 

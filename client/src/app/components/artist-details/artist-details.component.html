@@ -1,6 +1,15 @@
-<div>
+<section class="full">
 
+<div class="portada" *ngIf="artist">
+<div class="imgContenedor">
+    <img class="artistImg" src="{{ url + 'get-image-artist/' + artist.image }}">
+</div>
+<div class="caption">
+<h1>{{artist.name}}</h1>
+<p>{{artist.description}}</p>
+</div>
+</div> 
 
-
-    
+<div style=" width:100%; height:50%;">
+<p>hola</p>
 </div>

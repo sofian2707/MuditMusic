@@ -1,5 +1,154 @@
 
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+
+.wallpaper{
+    margin-left:16%; 
+    background-image: url("https://i.postimg.cc/HW9Y7rYD/Best-Music-3-2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 3%; 
+    height: 100vh;
+    
+    
+}
+
+.homeText{
+    height: 50%; 
+    width: 50%; 
+    margin-left: 5%; 
+    margin-top: 9%;
+}
+
+.homeText h1{
+    font-size: 60px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:  800;
+    color: rgba(245, 246, 246, 0.963)
+}
+
+.homeText p{
+    font-size: 18px;
+    font-weight: 400px;
+    text-align: left;
+    line-height: 34px;
+    letter-spacing: 1px;
+    color:rgb(244, 248, 248);
+
+}
 
 
 
+/* CSS */
+.button-78 {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .button-78 {
+    padding: 19px 32px;
+  }
+}
+
+.button-78:before,
+.button-78:after {
+  border-radius: 80px;
+}
+
+.button-78:before {
+  background-image: linear-gradient(92.83deg, #b2e9f78a 0, #1296bb68 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.button-78:after {
+  background-color: initial;
+  background-image: linear-gradient(#4dd1ebcc 0, #4efafaa2 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+ 
+}
+
+.button-78:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgba(38, 237, 255, 0.635) 0%, rgba(19, 203, 249, 0.53) 100%);
+
+}
+
+.button-78:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.button-78:active:not(:disabled) {
+  color: #ccc;
+}
+
+.button-78:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #26f4ff 0, #13e2f9 100%);
+}
+
+.button-78:active:not(:disabled):after {
+  background-image: linear-gradient(#72ccf5 0, #026868 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.button-78:disabled {
+  cursor: default;
+  opacity: .24;
+}
