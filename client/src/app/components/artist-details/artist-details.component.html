@@ -16,11 +16,14 @@
             <button class="button-12" role="button">Añadir album</button>
         </div>
 
-
-        <section class="grid">
-            <div class="cardItem">
-                <!-- LISTAR ALBUM -->
-            </div>
+        <h1 style="color: white; padding-top: 3%; padding-left: 2%;">Albums</h1>
+        <section class="grid" *ngIf="albums" >
+                <div class="cardItem" *ngFor="let album of albums">
+                    <img class="imgAlbum" src="{{ url + 'get-image-album/' + album.image }}" >
+                    <div class="captionAlbum">
+                    <p>{{album.title}}</p>
+                    </div>
+                </div>
 
         </section>
 

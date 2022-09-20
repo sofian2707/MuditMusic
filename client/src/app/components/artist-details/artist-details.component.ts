@@ -15,7 +15,7 @@ import { AlbumService } from 'src/app/services/album.service';
 })
 export class ArtistDetailsComponent implements OnInit {
 	public artist!: Artist;
-	public albums!: Album;
+	public albums!: Album[];
 	public identity;
 	public token;
 	public url: string;
