@@ -1,0 +1,29 @@
+
+section{
+    margin-left:20%; 
+    padding:0px 0px; 
+    height: 100vh;
+}
+
+form{
+    width: 50%;
+
+}
+
+h1{
+    color: white;
+    padding-top: 5%;
+}
+
+.textarea, .albumimg{
+    color: white;
+}
+
+.year{
+    width: 20%;
+}
+
+.albumImg{
+    width: 15%;
+    height: 15%;
+    }

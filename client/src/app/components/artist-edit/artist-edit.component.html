@@ -32,7 +32,7 @@
             <label for="formFile" class="form-label">Subir imagen de artista</label>
             <input class="form-control"  id="formFile" type="file" (change)="fileChangeEvent($event)">
           </div>
-  
+
           <div class="button form-floating mb-3" >
               <button type="submit" class="btn btn-secondary" [disabled]="!formArtist.form.valid" >{{titulo}}</button>
           </div>

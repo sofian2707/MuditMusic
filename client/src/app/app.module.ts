@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ArtistAddComponent } from './components/artist-add/artist-add.component';
 import { ArtistEditComponent } from './components/artist-edit/artist-edit.component';
 import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
+import { AlbumAddComponent } from './components/album-add/album-add.component';
+import { AlbumEditComponent } from './components/album-edit/album-edit.component';
+
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { ArtistDetailsComponent } from './components/artist-details/artist-detai
     HomeComponent,
     ArtistAddComponent,
     ArtistEditComponent,
-    ArtistDetailsComponent
+    ArtistDetailsComponent,
+    AlbumAddComponent,
+    AlbumEditComponent
     
   ],
   imports: [

@@ -13,6 +13,8 @@ import { ArtistListComponent } from './components/artist-list/artist-list.compon
 import { ArtistAddComponent } from './components/artist-add/artist-add.component';
 import { ArtistEditComponent } from './components/artist-edit/artist-edit.component';
 import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
+import { AlbumAddComponent } from './components/album-add/album-add.component';
+import { AlbumEditComponent } from './components/album-edit/album-edit.component';
 
 const routes: Routes = [
   {
@@ -26,8 +28,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'datos', component: UserEditComponent },
   { path: 'artistas/:page', component: ArtistListComponent},
-  { path: '**', component: HomeComponent}
-
+  {path: 'crear-album/:artist', component: AlbumAddComponent},
+  {path: 'editar-album/:id', component: AlbumEditComponent},
+  { path: '**', component: HomeComponent},
 ];
 
 export const appRoutingProviders: any[] = [];

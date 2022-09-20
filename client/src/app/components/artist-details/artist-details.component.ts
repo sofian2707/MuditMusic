@@ -34,7 +34,7 @@ export class ArtistDetailsComponent implements OnInit {
 	}
 
   ngOnInit() {
-    console.log('artist-detail.component.ts cargado');
+   
     //llamar api para sacar artisa segun id 
     this.getArtist();
   }
@@ -48,6 +48,7 @@ export class ArtistDetailsComponent implements OnInit {
 						this.router.navigate(['/']);
 					}else{
 						this.artist = response.artist;
+
             // Sacar los albums del artista
 						this.albumService.getAlbums(this.token, response.artist._id).subscribe({
               next: (response)=>{
@@ -55,6 +56,7 @@ export class ArtistDetailsComponent implements OnInit {
                   this.alertMessage = 'Este artista no tiene albums';
                 }else{
                   this.albums = response.albums;
+                  console.log(this.albums)
                 }
               },
               error: (error) => {
@@ -65,6 +67,8 @@ export class ArtistDetailsComponent implements OnInit {
                 }
               }
             });
+
+
 					}
         },
         error: (error) => {

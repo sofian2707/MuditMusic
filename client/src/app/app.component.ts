@@ -36,9 +36,6 @@ constructor(private UserService: UserService, private router: Router, private ro
 }
 
 ngOnInit(){
- console.log(this.identity);
- console.log(this.token);
-
  
 }
 
