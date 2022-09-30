@@ -38,10 +38,8 @@ public errorMessage: any;
   }
 
   onSubmit(){
-    console.log(this.artist);
     this.ArtistService.addArtist(this.token, this.artist).subscribe({
       next: (response) => {
-
         if(!response.artist){
           this.alertMessage= 'Error en el servidor';
         }else{

@@ -41,7 +41,7 @@ export class AlbumEditComponent implements OnInit {
     this.identity = this.UserService.getIdentity();
     this.token = this.UserService.getToken();
     this.url = GLOBAL.url;
-    this.album = new Album('', '', 2017, '', '');
+    this.album = new Album('','', '', 2017, '', '');
     this.is_edit = true;
   }
 
@@ -93,7 +93,7 @@ export class AlbumEditComponent implements OnInit {
 
 						if(!this.filesToUpload){
               //redirigir
-							//this.router.navigate(['/artista', response.album.artist]);
+							this.router.navigate(['/artista', response.album.artist]);
 						}else{
 							//Subir la imagen del album
 							this.UploadService.makeFileRequest(this.url+'upload-image-album/'+id, [], this.filesToUpload, this.token, 'image')

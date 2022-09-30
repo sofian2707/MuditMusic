@@ -42,7 +42,7 @@ export class AlbumAddComponent implements OnInit {
     this.identity = this.UserService.getIdentity();
     this.token = this.UserService.getToken();
     this.url = GLOBAL.url;
-    this.album = new Album('', '', 2017, '', '');
+    this.album = new Album('','', '', 2017, '', '');
 
     
   }

@@ -36,7 +36,7 @@ export class ArtistEditComponent implements OnInit {
     this.identity = this.UserService.getIdentity();
     this.token = this.UserService.getToken();
     this.url = GLOBAL.url;
-    this.artist = new Artist('','', '', '');
+    this.artist = new Artist('', '', '', '');
     this.is_edit = true;
   }
 
@@ -50,12 +50,11 @@ export class ArtistEditComponent implements OnInit {
       let id = params['id'];
       this.ArtistService.getArtistbyId(this.token, id).subscribe({
         next: (response) => {
-
-        	if(!response.artist){
-						this.router.navigate(['/']);
-					}else{
-						this.artist = response.artist;
-					}
+          if (!response.artist) {
+            this.router.navigate(['/']);
+          } else {
+            this.artist = response.artist;
+          }
 
         },
         error: (error) => {
@@ -77,27 +76,36 @@ export class ArtistEditComponent implements OnInit {
       let id = params['id'];
       this.ArtistService.editArtist(this.token, id, this.artist).subscribe({
         next: (response) => {
-          	
-					if(!response.artist){
-						this.alertMessage = 'Error en el servidor';
-					}else{
-						this.alertMessage = '¡El artista se ha actualizado correctamente!';
-						if(!this.filesToUpload){
-              //this.router.navigate(['/artista', response.artist._id ]);
-							this.router.navigate(['/artistas', 1]);
-						}else{
-							//Subir la imagen del artista
-							this.UploadService.makeFileRequest(this.url+'upload-image-artist/'+id, [], this.filesToUpload, this.token, 'image')
-								.then(
-									(result) => {
-                    this.router.navigate(['/artistas', 1]);
-										//this.router.navigate(['/artista', response.artist._id]);
-									},
-									(error) => {
-										console.log(error);
-									}
-								);
-						}
+
+          if (!response.artist) {
+            this.alertMessage = 'Error en el servidor';
+          } else {
+            this.alertMessage = '¡El artista se ha actualizado correctamente!';
+            setTimeout(() => {
+              this.router.navigate(['/artista', response.artist._id ]);
+            },
+              3000);
+            if (!this.filesToUpload) {
+              this.alertMessage = '¡El artista se ha actualizado correctamente!';
+            setTimeout(() => {
+              this.router.navigate(['/artista', response.artist._id ]);
+            },
+              2000);
+            } else {
+              //Subir la imagen del artista
+              this.UploadService.makeFileRequest(this.url + 'upload-image-artist/' + id, [], this.filesToUpload, this.token, 'image')
+                .then(
+                  (result) => {
+                    setTimeout(() => {
+                      this.router.navigate(['/artista', response.artist._id ]);
+                    },
+                      5000);
+                  },
+                  (error) => {
+                    console.log(error);
+                  }
+                );
+            }
           }
         },
         error: (error) => {
@@ -112,8 +120,8 @@ export class ArtistEditComponent implements OnInit {
   }
 
 
-  fileChangeEvent(fileInput: any){
-		this.filesToUpload = <Array<File>>fileInput.target.files;
-	}
+  fileChangeEvent(fileInput: any) {
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+  }
 
 }

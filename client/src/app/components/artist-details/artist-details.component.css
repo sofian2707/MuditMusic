@@ -3,7 +3,16 @@
     margin-left:17%; 
     padding:0px 0px; 
     height: 100vh;
+    overflow-y: auto; 
+    scroll-behavior: smooth;
+
 }
+
+
+.full::-webkit-scrollbar {
+  display: none;  /* Ocultar scroll */
+}
+
 
 .portada{
     padding-top: 2%;
@@ -74,9 +83,19 @@
     overflow-y: hidden; 
     overflow-x: auto;
     scroll-behavior: smooth;
-    height: 60%;
+    height: 100%;
     white-space: nowrap;
+    /*background-color: rgb(16, 15, 15);*/
+
   }
+
+  .grid::-webkit-scrollbar {
+    display: none;  /* Ocultar scroll */
+    overflow-x: hidden;
+}
+
+
+
 
 
   
@@ -84,10 +103,8 @@
   margin-left: 10px;
   margin-right: 10px;
   display: inline-block;
-  height: 23vh; 
-  width: 24vh;
-  position: relative;
-  
+  height: 28vh; 
+  width: 28vh;
   }
 
   
@@ -100,29 +117,16 @@
   }
 
   .captionAlbum{
-    position: absolute;
-    display: bottom;
     width: 100%;
-    transform: translateY(-100%);
-    background-color: rgba(255, 255, 255, 0.591);
-    display: flex;
-    align-items: center;
-    border-top-right-radius: 10%;
-
+    color: white;
   }
 
-
-  .captionAlbum p{
-    padding-top: 1%;
-    padding-left: 4%;
-    word-wrap: break-all;
-    font-size: 18px;
-  }
+.titleAlbum{
+  margin-top: 10%;
+  text-align: start;
+  font-weight: bolder;
+  line-height: 2px;
+}
+  
 
   
-  .captionAlbum p:hover{
-    padding-top: 1%;
-    padding-left: 8%;
-    font-size: 18px;
-    font-weight: bolder;
-  }
