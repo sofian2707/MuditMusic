@@ -12,6 +12,7 @@ import { ArtistEditComponent } from './components/artist-edit/artist-edit.compon
 import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
 import { AlbumAddComponent } from './components/album-add/album-add.component';
 import { AlbumEditComponent } from './components/album-edit/album-edit.component';
+import { AlbumDetailsComponent } from './components/album-details/album-details.component';
 
 
 
@@ -25,7 +26,8 @@ import { AlbumEditComponent } from './components/album-edit/album-edit.component
     ArtistEditComponent,
     ArtistDetailsComponent,
     AlbumAddComponent,
-    AlbumEditComponent
+    AlbumEditComponent,
+    AlbumDetailsComponent
     
   ],
   imports: [

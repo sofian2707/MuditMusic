@@ -59,7 +59,6 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   border-radius: 6px;
   border: none;
-
   background: #6E6D70;
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
   color: #DFDEDF;
@@ -78,6 +77,7 @@
 }
 
 .grid{
+  padding-left: 1%;
   padding-top: 1%;
   padding-bottom: 1%;
     overflow-y: hidden; 
@@ -103,8 +103,8 @@
   margin-left: 10px;
   margin-right: 10px;
   display: inline-block;
-  height: 28vh; 
-  width: 28vh;
+  height: 220px; 
+  width: 220px;
   }
 
   
@@ -118,8 +118,12 @@
 
   .captionAlbum{
     width: 100%;
+    text-align: start;
     color: white;
+    overflow-wrap: anywhere;
   }
+
+
 
 .titleAlbum{
   margin-top: 10%;
@@ -127,6 +131,3 @@
   font-weight: bolder;
   line-height: 2px;
 }
-  
-
-  

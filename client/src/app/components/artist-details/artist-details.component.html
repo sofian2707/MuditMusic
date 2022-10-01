@@ -20,14 +20,16 @@
         <section class="grid" *ngIf="albums">
 
             <div class="cardItem" *ngFor="let album of albums">
-                    <img class="imgAlbum" src="{{ url + 'get-image-album/' + album.image }}">
-                    <div class="captionAlbum">
+                <img class="imgAlbum" src="{{ url + 'get-image-album/' + album.image }}">
+                <div class="captionAlbum">
+                    
                         <p class="titleAlbum">{{album.title}}</p>
-                        <p>{{album.year}} </p>
-                    </div>
+                        <p>{{album.year}} ● {{artist.name}} </p>
+               
+                </div>
 
-                <div class="adminOptions btn-group" role="group" aria-label="Basic mixed styles example" style="padding-top: 5%;"
-                    *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                <div class="adminOptions btn-group" role="group" aria-label="Basic mixed styles example"
+                    style="padding-top: 5%;" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
                     <button type="button" class="btn btn-dark" (click)="onDeleteConfirm(album._id)">Eliminar</button>
                     <button type="button" class="btn btn-light"
                         [routerLink]="['/editar-album', album._id]">Editar</button>
