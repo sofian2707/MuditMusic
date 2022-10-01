@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'artistas/:page', component: ArtistListComponent},
   {path: 'crear-album/:artist', component: AlbumAddComponent},
   {path: 'editar-album/:id', component: AlbumEditComponent},
-  {path: 'album', component: AlbumDetailsComponent},
+  {path: 'album/:id', component: AlbumDetailsComponent},
   { path: '**', component: HomeComponent},
 ];
 

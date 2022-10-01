@@ -1,49 +1,47 @@
 <section class="full">
-    <div class="portada">
-        <div class="album">
 
+    <div class="portada" *ngIf="album ">
+        <div class="album">
+            <img class="albumImg" src="{{ url + 'get-image-album/' + album.image }}" />
         </div>
 
-        <div class="textAlbum">
-            <p style="font-weight: bolder;">ALBUM</p>
-            <h1>NOMBRE DEL ALBUM</h1>
-            <p>ArtistaNombre • 2022 • 20 canciones </p>
+        <div class="textAlbum" >
+            <p style="font-weight: bolder;">ALBUM </p>
+            <h1  style="font-weight: bolder;">{{album.title}}</h1>
+            <p> {{album.description}} • {{album.year}}</p>
         </div>
 
 
     </div>
     <div class="complete">
+        <div class="admin" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+            <button class="button-12" role="button">Añadir Cancion</button>
+        </div>
         <div>
-            <table class="table table-dark">
+            <table>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">TITULO</th>
+                        <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="white" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8zm-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72z"/></svg></th>
+                        <th *ngIf="identity && identity.role == 'ROLE_ADMIN'"  scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td>cancion</td>
+                        <td>9m</td>
+                        <td *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary">Editar</button>
+                                <button type="button" class="btn btn-secondary">Eliminar</button>
+                              </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </section>

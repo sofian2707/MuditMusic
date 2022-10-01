@@ -20,8 +20,9 @@
         <section class="grid" *ngIf="albums">
 
             <div class="cardItem" *ngFor="let album of albums">
+                <div class="captionAlbum" [routerLink]="['/album', album._id]">
                 <img class="imgAlbum" src="{{ url + 'get-image-album/' + album.image }}">
-                <div class="captionAlbum">
+            
                     
                         <p class="titleAlbum">{{album.title}}</p>
                         <p>{{album.year}} ● {{artist.name}} </p>
