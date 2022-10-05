@@ -16,6 +16,10 @@ import { ArtistDetailsComponent } from './components/artist-details/artist-detai
 import { AlbumAddComponent } from './components/album-add/album-add.component';
 import { AlbumEditComponent } from './components/album-edit/album-edit.component';
 import { AlbumDetailsComponent } from './components/album-details/album-details.component';
+import { SongAddComponent } from './components/song-add/song-add.component';
+import { SongEditComponent } from './components/song-edit/song-edit.component';
+
+
 
 const routes: Routes = [
   {
@@ -23,6 +27,8 @@ const routes: Routes = [
     redirectTo:'home',
     pathMatch:'full'
   },
+  {path: 'crear-tema/:album', component: SongAddComponent},
+  {path: 'editar-tema/:album', component: SongEditComponent},
   {path: 'artista/:id', component: ArtistDetailsComponent},
   { path: 'crear-artista', component: ArtistAddComponent },
   { path: 'editar-artista/:id', component: ArtistEditComponent },

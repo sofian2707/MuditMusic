@@ -8,14 +8,14 @@
         <div class="textAlbum" >
             <p style="font-weight: bolder;">ALBUM </p>
             <h1  style="font-weight: bolder;">{{album.title}}</h1>
-            <p> {{album.description}} • {{album.year}}</p>
+            <p>{{album.artist}} {{album.description}} • {{album.year}}</p>
         </div>
 
 
     </div>
     <div class="complete">
         <div class="admin" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
-            <button class="button-12" role="button">Añadir Cancion</button>
+            <button class="button-12" role="button" [routerLink]="['/crear-tema', album._id]" >Añadir Cancion</button>
         </div>
         <div>
             <table>
@@ -28,10 +28,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>cancion</td>
-                        <td>9m</td>
+                    <tr *ngFor="let song of songs">
+
+                        <th scope="row">{{song.number}}</th>
+                        <td>{{song.name}}</td>
+                        <td>{{song.duration}}</td>
                         <td *ngIf="identity && identity.role == 'ROLE_ADMIN'">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary">Editar</button>

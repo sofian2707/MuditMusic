@@ -26,43 +26,43 @@ export class SongService {
 
         if (albumId == null) {
             return this.http.get(this.url + 'songs', options)
-        }else{
+        } else {
             return this.http.get(this.url + 'songs/' + albumId, options)
         }
 
     }
 
-    
-	getSong(token:any, id: string): Observable<any>{
+
+    getSong(token: any, id: string): Observable<any> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
         let options = { headers: headers };
-		return this.http.get(this.url+'song/'+id, options);
-	}
+        return this.http.get(this.url + 'song/' + id, options);
+    }
 
-    addSong(token:any, song: Song): Observable<any>{
-		let params = JSON.stringify(song);
+    addSong(token: any, song: Song): Observable<any> {
+        let params = JSON.stringify(song);
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
         let options = { headers: headers };
-		return this.http.post(this.url+'song', params, options);
-	}
+        return this.http.post(this.url + 'song', params, options);
+    }
 
-    editSong(token:any, id:string, song: Song): Observable<any>{
-		let params = JSON.stringify(song);
+    editSong(token: any, id: string, song: Song): Observable<any> {
+        let params = JSON.stringify(song);
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
         let options = { headers: headers };
-		return this.http.put(this.url+'song/'+id, params, options);				
-	}
+        return this.http.put(this.url + 'song/' + id, params, options);
+    }
 
-    deleteSong(token:any, id: string): Observable<any>{
+    deleteSong(token: any, id: string): Observable<any> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
         let options = { headers: headers };
 
-		return this.http.delete(this.url+'song/'+id, options);
-	}
+        return this.http.delete(this.url + 'song/' + id, options);
+    }
 
 
 }
