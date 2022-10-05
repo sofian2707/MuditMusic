@@ -31,7 +31,7 @@ public alertMessage: any;
     this.identity= this.UserService.getIdentity();
     this.token= this.UserService.getToken();
     this.url= GLOBAL.url;
-    this.song = new Song(1,'','','','');
+    this.song = new Song('',1,'','','','');
   }
 
   ngOnInit(): void {
@@ -49,8 +49,11 @@ public alertMessage: any;
 					}else{
 						this.alertMessage = '¡La cancion se ha creado correctamente!';
 						this.song = response.song;
-            this.router.navigate(['/']);
-            //this.router.navigate(['/editar-tema', response.song._id]);
+            setTimeout(() => {
+              this.router.navigate(['/editar-tema', response.song._id]);
+            },
+            1500);
+  
 					}
         },
         error: (error) => {

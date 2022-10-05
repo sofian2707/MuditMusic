@@ -28,7 +28,7 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {path: 'crear-tema/:album', component: SongAddComponent},
-  {path: 'editar-tema/:album', component: SongEditComponent},
+  {path: 'editar-tema/:id', component: SongEditComponent},
   {path: 'artista/:id', component: ArtistDetailsComponent},
   { path: 'crear-artista', component: ArtistAddComponent },
   { path: 'editar-artista/:id', component: ArtistEditComponent },

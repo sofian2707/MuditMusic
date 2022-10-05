@@ -100,8 +100,10 @@ export class ArtistDetailsComponent implements OnInit {
         next: (response) => { 
           if(!response.album){
             alert('Error en el servidor');
+          }else{
+            this.getArtist();
           }
-          this.getArtist();
+          
         },
         error: (error) => {
           var alertMessage:any = error;

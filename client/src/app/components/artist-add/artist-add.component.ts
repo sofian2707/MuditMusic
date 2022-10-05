@@ -45,7 +45,11 @@ public errorMessage: any;
         }else{
           this.alertMessage= 'Artista creado correctamente';
           this.artist=response.artist;
-          this.router.navigate(['/editar-artista/', response.artist._id ]);
+          setTimeout(() => {
+            this.router.navigate(['/editar-artista/', response.artist._id ]);
+          },
+          1500);
+      
         }
       },
       error: (error) => {

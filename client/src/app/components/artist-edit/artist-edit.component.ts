@@ -81,16 +81,19 @@ export class ArtistEditComponent implements OnInit {
             this.alertMessage = 'Error en el servidor';
           } else {
             this.alertMessage = '¡El artista se ha actualizado correctamente!';
+            
             setTimeout(() => {
               this.router.navigate(['/artista', response.artist._id ]);
             },
-              3000);
+            1500);
+
+
             if (!this.filesToUpload) {
               this.alertMessage = '¡El artista se ha actualizado correctamente!';
             setTimeout(() => {
               this.router.navigate(['/artista', response.artist._id ]);
             },
-              2000);
+            1500);
             } else {
               //Subir la imagen del artista
               this.UploadService.makeFileRequest(this.url + 'upload-image-artist/' + id, [], this.filesToUpload, this.token, 'image')
@@ -99,7 +102,7 @@ export class ArtistEditComponent implements OnInit {
                     setTimeout(() => {
                       this.router.navigate(['/artista', response.artist._id ]);
                     },
-                      5000);
+                    1500);
                   },
                   (error) => {
                     console.log(error);

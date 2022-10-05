@@ -20,7 +20,7 @@ export class AlbumDetailsComponent implements OnInit {
 	public token;
 	public url: string;
 	public alertMessage:any;
-  
+  public confirmado:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -82,12 +82,19 @@ export class AlbumDetailsComponent implements OnInit {
   }
 
 
+  onDeleteConfirm(id:any){
+    this.confirmado = id;
+  }
+
+  onCancelSong(){
+    this.confirmado = null;
+  }
 
   
   onDeleteSong(id:any){
     this.SongService.deleteSong(this.token, id).subscribe({
       next: (response) => { 
-        if(response.song){
+        if(!response.song){
           alert('Error en el servidor');
         }else{
           this.getAlbum();

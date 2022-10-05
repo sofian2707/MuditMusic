@@ -1,13 +1,19 @@
 .principal{
-    width: 50%; 
-    height: 100vh;
-    margin-left:17%; 
-    padding:0px 10px; 
-    
+  height: 100vh;
+  margin-left:17%;
+
 }
 
+form{
+  background-color: #1e1d1d;;
+  width: 100%;
+ padding:0px 10px; 
+}
+
+
 legend{
-    padding-top: 5%;
+  padding-top: 2%;
+  padding-left: 2%;
     color: white;
     font-weight: 500px;
 }
@@ -15,9 +21,14 @@ legend{
 input{
     background-color:  #7e8081e7;
      border: none;
-     
+     width: 50%;
   }
 
+  .alert{
+    width: 35%;
+    margin-left: 2%;
+  }
+  
   label{
     color: white;
   }

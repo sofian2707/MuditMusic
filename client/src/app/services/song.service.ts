@@ -33,7 +33,7 @@ export class SongService {
     }
 
 
-    getSong(token: any, id: string): Observable<any> {
+    getSongbyId(token: any, id: string): Observable<any> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
         let options = { headers: headers };

@@ -35,9 +35,17 @@
                         <td>{{song.duration}}</td>
                         <td *ngIf="identity && identity.role == 'ROLE_ADMIN'">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary">Editar</button>
-                                <button type="button" class="btn btn-secondary">Eliminar</button>
+                                <button type="button" class="btn btn-secondary" [routerLink]="['/editar-tema', song._id]">Editar</button>
+                                <button type="button" class="btn btn-secondary" (click)="onDeleteConfirm(song._id)">Eliminar</button>
                               </div>
+                              <div class="seguro" *ngIf="confirmado == song._id">
+                                <a (click)="onDeleteSong(song._id)" class="btn btn-sm btn-danger">
+                                    Eliminar
+                                </a>
+                                <a (click)="onCancelSong()" class="btn btn-sm btn-primary">
+                                    Cancelar
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

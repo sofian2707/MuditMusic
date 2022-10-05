@@ -21,3 +21,15 @@ input, textarea{
   }
 
   
+legend{
+  padding-top: 3%;
+  padding-left: 2%;
+    color: white;
+    font-weight: 500px;
+}
+
+
+.alert{
+  width: 35%;
+  margin-left: 2%;
+}
