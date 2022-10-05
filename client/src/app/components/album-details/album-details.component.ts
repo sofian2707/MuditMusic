@@ -6,6 +6,8 @@ import { GLOBAL } from '../../services/global';
 import { AlbumService } from 'src/app/services/album.service';
 import { SongService } from 'src/app/services/song.service';
 import { Song } from 'src/app/models/song';
+import { ArtistService } from 'src/app/services/artist.service';
+import { Artist } from 'src/app/models/artist';
 
 @Component({
   selector: 'app-album-details',
@@ -16,6 +18,8 @@ import { Song } from 'src/app/models/song';
 export class AlbumDetailsComponent implements OnInit {
   public album!: Album;
 	public songs!: Song[];
+  	public artist!: Artist;
+	public albums!: Album[];
 	public identity;
 	public token;
 	public url: string;
@@ -27,7 +31,8 @@ export class AlbumDetailsComponent implements OnInit {
 		private router: Router,
 		private userService: UserService,
 		private albumService: AlbumService,
-    private SongService: SongService
+    private SongService: SongService,
+    private ArtistService: ArtistService
   ) {
     this.identity = this.userService.getIdentity();
 		this.token = this.userService.getToken();
@@ -66,7 +71,6 @@ export class AlbumDetailsComponent implements OnInit {
               }
             })
 
-     
 					}
         },
         error: (error) => {

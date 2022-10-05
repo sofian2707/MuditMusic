@@ -1,6 +1,6 @@
 <section class="full">
 
-    <div class="portada" *ngIf="album ">
+    <div class="portada" *ngIf="album">
         <div class="album">
             <img class="albumImg" src="{{ url + 'get-image-album/' + album.image }}" />
         </div>
@@ -8,7 +8,7 @@
         <div class="textAlbum" >
             <p style="font-weight: bolder;">ALBUM </p>
             <h1  style="font-weight: bolder;">{{album.title}}</h1>
-            <p>{{album.artist}} {{album.description}} • {{album.year}}</p>
+            <p>{{album.description}} • {{album.year}}</p>
         </div>
 
 

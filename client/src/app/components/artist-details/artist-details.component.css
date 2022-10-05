@@ -79,13 +79,13 @@
 .grid{
   padding-left: 1%;
   padding-top: 1%;
-  padding-bottom: 1%;
+  padding-bottom: 3%;
     overflow-y: hidden; 
     overflow-x: auto;
     scroll-behavior: smooth;
-    height: 120%;
     white-space: nowrap;
-    background-color: #1e1d1d;
+   background-color: rgb(16, 15, 15);
+ 
   }
 
   .grid::-webkit-scrollbar {
@@ -94,7 +94,11 @@
 }
  
 
+.adminOptions{
 
+  display: inline-block;
+  padding-bottom: 50%;
+}
 
   
 .cardItem{
