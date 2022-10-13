@@ -6,9 +6,10 @@
         </div>
 
         <div class="textAlbum" >
+            
             <p style="font-weight: bolder;">ALBUM </p>
             <h1  style="font-weight: bolder;">{{album.title}}</h1>
-            <p>{{album.description}} • {{album.year}}</p>
+            <p> {{album.description}} • {{album.year}}</p>
         </div>
 
 
@@ -21,6 +22,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th scope="col"></th>
                         <th scope="col">#</th>
                         <th scope="col">TITULO</th>
                         <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="white" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8zm-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72z"/></svg></th>
@@ -29,7 +31,13 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let song of songs">
-
+                        <th scope="row" class="play">
+                            <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16" (click)="startPlayer()">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                                
+                              </svg>
+                        </th>
                         <th scope="row">{{song.number}}</th>
                         <td>{{song.name}}</td>
                         <td>{{song.duration}}</td>
@@ -38,6 +46,8 @@
                                 <button type="button" class="btn btn-secondary" [routerLink]="['/editar-tema', song._id]">Editar</button>
                                 <button type="button" class="btn btn-secondary" (click)="onDeleteConfirm(song._id)">Eliminar</button>
                               </div>
+
+
                               <div class="seguro" *ngIf="confirmado == song._id">
                                 <a (click)="onDeleteSong(song._id)" class="btn btn-sm btn-danger">
                                     Eliminar
@@ -46,6 +56,8 @@
                                     Cancelar
                                 </a>
                             </div>
+
+                            
                         </td>
                     </tr>
                 </tbody>

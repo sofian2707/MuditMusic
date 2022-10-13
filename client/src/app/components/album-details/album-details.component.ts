@@ -43,6 +43,7 @@ export class AlbumDetailsComponent implements OnInit {
     this.getAlbum();
   }
 
+
   getAlbum() {
     this.route.params.forEach((params: Params) => {
       let id = params['id'];
@@ -114,6 +115,9 @@ export class AlbumDetailsComponent implements OnInit {
   });
   }
 
+  startPlayer(){
+    
+  }
 
   
 

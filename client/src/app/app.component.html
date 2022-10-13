@@ -86,8 +86,7 @@
 <!--DROPDOWN BARRA -->
         <div class="dropdown-content">
 
-          <a><img id="image-logged" src="{{url+'get-image-user/'+identity.image}}"></a>
-          <a class="itemUser" href="">Bienvenido <span id="identity_name">{{identity.name}}</span></a>
+          <a><img id="image-logged" src="{{url+'get-image-user/'+identity.image}}"> <span id="identity_name">{{identity.name}}</span></a>
           <a class="itemUser" href="" [routerLink]="['/datos'] " [routerLinkActive]="['actived']">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" preserveAspectRatio="xMidYMid meet"
               viewBox="0 0 24 24">
@@ -116,8 +115,9 @@
 
   <!--LATERAL -->
 
-  <div [class.hidden]="!identity" style=" background-color: #1e1d1d; height: 100%;">
+  <div [class.hidden]="!identity" style="background-color: #1e1d1d; height: 100%;">
     <router-outlet></router-outlet>
+    <player></player>
   </div>
 
 </div>
