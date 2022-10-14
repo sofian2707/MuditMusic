@@ -9,7 +9,13 @@
             
             <p style="font-weight: bolder;">ALBUM </p>
             <h1  style="font-weight: bolder;">{{album.title}}</h1>
-            <p> {{album.description}} • {{album.year}}</p>
+            <p> {{album.description}}</p>
+            <div >
+                <img class="artistImage" src="{{ url + 'get-image-artist/' + artist.image }}">
+                 <p style="display: inline; padding-left: 1%;"><a class="artistName"[routerLink]="['/artista', artist._id]" >{{artist.name}}</a> • {{album.year}}</p>
+            </div>
+            
+
         </div>
 
 
@@ -32,14 +38,14 @@
                 <tbody>
                     <tr *ngFor="let song of songs">
                         <th scope="row" class="play">
-                            <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16" (click)="startPlayer()">
+                            <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16" (click)="startPlayer(song)">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
                                 
                               </svg>
                         </th>
                         <th scope="row">{{song.number}}</th>
-                        <td>{{song.name}}</td>
+                        <td style="font-size: 18px;">{{song.name}} <p style="font-size: 13px;">{{artist.name}}</p></td>
                         <td>{{song.duration}}</td>
                         <td *ngIf="identity && identity.role == 'ROLE_ADMIN'">
                             <div class="btn-group" role="group" aria-label="Basic example">

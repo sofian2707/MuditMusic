@@ -65,7 +65,6 @@ export class ArtistListComponent implements OnInit {
             this.router.navigate(['/']);
           }else{
             this.artists = response.artists;
-            console.log(this.artists);
           }
         },
         error: (error) => {

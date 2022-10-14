@@ -54,6 +54,26 @@ export class AlbumDetailsComponent implements OnInit {
 					}else{
 						this.album = response.album;
 
+            //sacar artista
+            this.ArtistService.getArtistbyId(this.token, response.album.artist._id).subscribe({
+              next: (response) => {
+              if(!response.artist){
+              this.alertMessage = 'No existe el artista';
+              }else{
+              this.artist = response.artist;
+              console.log(this.artist)
+              }
+            },
+            error: (error) => {
+              var alertMessage: any = error;
+              if (alertMessage != null) {
+                this.alertMessage = error
+                console.log(alertMessage);
+              }
+            }
+            })
+
+
             //Sacar las canciones
             this.SongService.getSongs(this.token, response.album._id).subscribe({
               next: (response) => {
@@ -115,11 +135,30 @@ export class AlbumDetailsComponent implements OnInit {
   });
   }
 
-  startPlayer(){
-    
+
+  startPlayer(song:any){
+      let song_player = JSON.stringify(song);
+      let artist_song = JSON.stringify(this.artist);
+      let file_path = this.url + 'get-file-song/' + song.file;
+      let image_path = this.url + 'get-image-album/' + song.album.image;
+
+      localStorage.setItem('sound_song', song_player);
+      localStorage.setItem('artist_song', artist_song);
+
+      document.getElementById("mp3-source")!.setAttribute("src", file_path);
+      (document.getElementById("player") as any).load();
+      (document.getElementById("player") as any).play();
+
+      document.getElementById('play-song-title')!.innerHTML = song.name;
+      document.getElementById('play-song-artist')!.innerHTML = this.artist.name;
+      document.getElementById('play-image-album')!.setAttribute('src', image_path);
+
   }
+
+}
+
+
 
   
 
 
-}

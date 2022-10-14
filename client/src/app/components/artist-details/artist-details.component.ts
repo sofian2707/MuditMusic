@@ -36,7 +36,6 @@ export class ArtistDetailsComponent implements OnInit {
 	}
 
   ngOnInit() {
-   
     //llamar api para sacar artisa segun id 
     this.getArtist();
   }
@@ -58,7 +57,6 @@ export class ArtistDetailsComponent implements OnInit {
                   this.alertMessage = 'Este artista no tiene albums';
                 }else{
                   this.albums = response.albums;
-                  console.log(this.albums)
                 }
               },
               error: (error) => {

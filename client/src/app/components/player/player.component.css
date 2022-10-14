@@ -1,11 +1,56 @@
 section{
-    background-color: #3b3a3a; 
-   height: 4em;
+    background-color:  #877f7f; 
    position: relative;
   height: 10vh;
+  overflow: hidden;
 }
 
-h1{
-    color:white;
-    
+.textSong, .audio-file{
+display: inline-block;
+position: absolute;
+height: 100%;
+padding-top: 5px;
 }
+
+.textSong{
+   line-height: 5px;
+   margin-left: 6%;
+   align-items: center;
+   text-align: left;
+   font-weight: bold;
+   color: rgb(41, 41, 40);
+   margin-top: 6px;
+}
+
+.imgSong{
+    position: absolute;
+    margin-left: 1%;
+}
+
+svg{
+    padding-bottom: 3px;
+}
+
+.audio-file{
+margin-left: 20%;
+width: 78%;
+
+
+
+}
+
+#play-image-album{
+    padding-top: 1px;
+    width: 10%;
+    height: 8%;
+    object-fit: cover;
+}
+
+audio{
+    width: 100%;
+}
+
+
+#player::-webkit-media-controls-panel{
+    background-color: #b5aeae; 
+    }

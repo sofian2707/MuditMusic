@@ -45,7 +45,7 @@
       </li>
 
       <li id='navbarLi'>
-        <a class="item" href="" routerLinkActive="actived">
+        <a class="item" href="" [routerLink]="['/home']">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 24 24">
             <g fill="none" stroke-width="1.5">
@@ -62,7 +62,7 @@
       </li>
 
       <li id='navbarLi'>
-        <a class="item" href="" [routerLinkActive]="['actived']">
+        <a class="item" href="" [routerLink]="['/home']">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 1664 1664">
             <path fill="currentColor"
@@ -117,7 +117,7 @@
 
   <div [class.hidden]="!identity" style="background-color: #1e1d1d; height: 100%;">
     <router-outlet></router-outlet>
-    <player></player>
+    <player class="player"></player>
   </div>
 
 </div>

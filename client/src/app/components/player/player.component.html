@@ -1,4 +1,22 @@
-<section>
-    <h1>player works!</h1>
-</section>
+<section >
+    <div class="imgSong" >
+        <img id="play-image-album"  src="{{ url + 'get-image-album/' + album.image }}" />
+    </div>
+    
+    <div class="textSong">
+        <p id="play-song-title"> {{song.name}}</p>
+        <p id="play-song-artist">
+				{{song.album}}
+		</p>
+        
+        <p id="play-song-artist"> {{album.artist}}</p>
+    </div>
 
+    <div class="audio-file">
+        <audio controls autoplay id="player">
+            <source id="mp3-source" src="{{ url + 'get-file-song/' + song.file }}" type="audio/mpeg">
+        </audio>
+    </div>
+
+
+</section>
