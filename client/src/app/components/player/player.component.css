@@ -15,7 +15,7 @@ padding-top: 5px;
 
 .textSong{
    line-height: 3px;
-   margin-left: 6%;
+   margin-left: 13vh;
    align-items: center;
    text-align: left;
    font-weight: bold;
@@ -34,7 +34,7 @@ padding-top: 5px;
 }
 .imgSong{
     position: absolute;
-    margin-left: 1%;
+    margin-left: 2vh;
 
 }
 
