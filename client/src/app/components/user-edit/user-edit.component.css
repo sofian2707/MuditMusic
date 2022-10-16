@@ -2,11 +2,22 @@
   color:white;
     margin-left:18%; 
     padding:0px 12px; 
-    padding-top: 2%;
+    padding-top: 1%;
+    min-height: 90vh;
+    
+    overflow-y: auto; 
+    scroll-behavior: smooth;
+
 }
+
+.contenedorForm::-webkit-scrollbar {
+  display: none;  /* Ocultar scroll */
+}
+
 
 form{
 width: 50%;
+
 }
 
 .figure-caption{
@@ -14,9 +25,9 @@ width: 50%;
 }
 
 img{
-    width: 150px;
-    height: 150px; 
-    border-radius: 100px;
+    width: 100px;
+    height: 100px; 
+    border-radius: 100%;
   }
 
   input{
@@ -31,5 +42,9 @@ img{
   }
 
   .button{
-    margin-top: 2%;
+    margin-top: 1%;
+  }
+
+  .alert{
+    width: 36%;
   }

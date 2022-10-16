@@ -3,6 +3,7 @@
     margin-left:17%; 
     padding:0px 0px; 
     height: 90vh;
+    
     overflow-y: auto; 
     scroll-behavior: smooth;
 
@@ -33,22 +34,19 @@ background-image: linear-gradient(360deg,  rgb(16, 15, 15) 0, rgb(39, 36, 36) 30
 }
 
 .textAlbum{
-    padding-top: 2%;
-    width: 75%;
-    height: 270px;
-    padding-left: 2%;
+    width: 120vh;
+    height: 130%;
+    padding-left: 1%;
     color:white;
     word-wrap: break-word;
 
 }
 
 .textAlbum h1{
-    font-size: 50px;
-    margin-top: 6%;
-  
+    font-size: 4em;
+    margin-top: 2%;
     
 }
-
 
 .complete{
     width: 100%;

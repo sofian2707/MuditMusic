@@ -1,8 +1,8 @@
 
-<div class="contenedorForm" *ngIf="identity" style="height: 90vh;">
+<div class="contenedorForm" *ngIf="identity" >
   <div class="container-sm" *ngIf="user.image && user.image != 'null'">
     <img src="{{url+'get-image-user/'+user.image}}" class="img-thumbnail">
-    <figcaption class="figure-caption" style="padding-left: 5%;">{{user.name}}</figcaption>
+    <figcaption class="figure-caption" style="padding-left: 2%;">{{user.name}}</figcaption>
   </div>
 
     <hr class="my-4">

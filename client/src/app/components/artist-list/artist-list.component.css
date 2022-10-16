@@ -4,8 +4,9 @@
 
 
 .principal{
-    padding-top: 5%;
-    height: 90vh;
+    padding-top: 5%; 
+    min-height: 90vh;
+    
     margin-left:17%; 
   padding:0px; 
     background-color: #1e1d1d;

@@ -107,19 +107,20 @@
   display: inline-block;
   height: 220px; 
   width: 220px;
+ 
   }
 
   
   .imgAlbum{
-    width:90%;
-    height:90%;
+    height: 230px; 
+    width: 200px;
    display: block;
    object-fit: cover;
    margin: 0 auto;
    padding-top: 3%;
    border-radius: 7%;
    padding-bottom: 10%;
-   
+  
   }
 
   .captionAlbum{
@@ -135,16 +136,30 @@
 
   .captionAlbum p{
     padding-left: 3%;
-  line-height: 10px;
+  
   }
 
 
 .titleAlbum{
   text-align: start;
   font-weight: bolder;
+  height: 30px;
+  width: 200px;
+  white-space: normal !important;
+  word-wrap: break;
+}
+
+.infoAlbum{
+  line-height: 23px;
+  color: #6E6D70;
 }
 
 .captionAlbum:hover{
   background-color: rgba(96, 96, 96, 0.363);
+  
+ 
 }
 
+.captionAlbum:hover .infoAlbum{
+ color: white;
+}

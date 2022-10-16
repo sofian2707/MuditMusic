@@ -1,8 +1,9 @@
 section{
     background-color:  #877f7f; 
    position: relative;
-  height: 10vh;
   overflow: hidden;
+  min-height: 10vh;
+    
 }
 
 .textSong, .audio-file{
@@ -13,18 +14,28 @@ padding-top: 5px;
 }
 
 .textSong{
-   line-height: 5px;
+   line-height: 3px;
    margin-left: 6%;
    align-items: center;
    text-align: left;
    font-weight: bold;
    color: rgb(41, 41, 40);
    margin-top: 6px;
+   white-space: normal !important;
+  word-wrap: break;
+   width: 13%;
+   
 }
 
+#play-song-title{
+    white-space: normal !important;
+    word-wrap: break;
+    line-height: 15px;
+}
 .imgSong{
     position: absolute;
     margin-left: 1%;
+
 }
 
 svg{
@@ -40,10 +51,10 @@ width: 78%;
 }
 
 #play-image-album{
-    padding-top: 1px;
-    width: 10%;
-    height: 8%;
-    object-fit: cover;
+    padding-top: 5px;
+    width: 85px;
+    height: 70px;
+    object-fit: contain;
 }
 
 audio{

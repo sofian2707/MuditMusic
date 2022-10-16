@@ -141,6 +141,7 @@ export class AlbumDetailsComponent implements OnInit {
       let artist_song = JSON.stringify(this.artist);
       let file_path = this.url + 'get-file-song/' + song.file;
       let image_path = this.url + 'get-image-album/' + song.album.image;
+      
 
       localStorage.setItem('sound_song', song_player);
       localStorage.setItem('artist_song', artist_song);
@@ -150,6 +151,7 @@ export class AlbumDetailsComponent implements OnInit {
       (document.getElementById("player") as any).play();
 
       document.getElementById('play-song-title')!.innerHTML = song.name;
+      document.getElementById('not-title')!.innerHTML = "";
       document.getElementById('play-song-artist')!.innerHTML = this.artist.name;
       document.getElementById('play-image-album')!.setAttribute('src', image_path);
 

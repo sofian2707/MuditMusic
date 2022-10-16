@@ -14,9 +14,11 @@ export class PlayerComponent implements OnInit {
 	public song!: Song;
 	public artist!: Artist;
 	public album!: Album;
+	public show: boolean;
 
 	constructor(){
 		this.url = GLOBAL.url;
+		this.show = false;
 	}
 
   ngOnInit(): void {
@@ -26,8 +28,10 @@ export class PlayerComponent implements OnInit {
 song.forEach((object: any) =>{
     console.log(song);
 });
+
 		if(song){
 			this.song = song;
+			this.show= true;
 		}else{
 			this.song = new Song('',1, "","","","");
 		}

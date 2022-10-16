@@ -9,10 +9,10 @@
             
             <p style="font-weight: bolder;">ALBUM </p>
             <h1  style="font-weight: bolder;">{{album.title}}</h1>
-            <p> {{album.description}}</p>
+            <p class="description"> {{album.description}}</p>
             <div >
                 <img class="artistImage" src="{{ url + 'get-image-artist/' + artist.image }}">
-                 <p style="display: inline; padding-left: 1%;"><a class="artistName"[routerLink]="['/artista', artist._id]" >{{artist.name}}</a> • {{album.year}}</p>
+                 <p style="display: inline; padding-left: 1%;  font-size: 1vw;"><a class="artistName"[routerLink]="['/artista', artist._id]" >{{artist.name}}</a> • {{album.year}}</p>
             </div>
             
 
@@ -50,7 +50,7 @@
                         <td *ngIf="identity && identity.role == 'ROLE_ADMIN'">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary" [routerLink]="['/editar-tema', song._id]">Editar</button>
-                                <button type="button" class="btn btn-secondary" (click)="onDeleteConfirm(song._id)">Eliminar</button>
+                                <button type="button" class="btn btn-secondary" (click)="onDeleteConfirm(song._id)" >Eliminar</button>
                               </div>
 
 

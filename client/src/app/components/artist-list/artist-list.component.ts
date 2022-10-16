@@ -90,11 +90,13 @@ export class ArtistListComponent implements OnInit {
     onDeleteArtist(id:any){
       this.ArtistService.deleteArtist(this.token, id).subscribe({
         next: (response) => { 
-          if(response.artist){
-            alert('Error en el servidor');
-          }else{
+          if(!response.artist){
             this.getArtists();
+          }else{
+            console.log('Error en el servidor');
           }
+            
+          
         },
         error: (error) => {
           var alertMessage:any = error;

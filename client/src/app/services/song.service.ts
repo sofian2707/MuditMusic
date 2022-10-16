@@ -56,7 +56,7 @@ export class SongService {
         return this.http.put(this.url + 'song/' + id, params, options);
     }
 
-    deleteSong(token: any, id: string): Observable<any> {
+    deleteSong(token:any, id:string): Observable<any> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
         let options = { headers: headers };
