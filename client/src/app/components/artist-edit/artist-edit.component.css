@@ -44,6 +44,10 @@ form{
     color: rgb(249, 244, 244);
 }
 
+form span{
+  color: rgb(120, 4, 4);
+}
+
 input, textarea{
     background-color:  #7e8081e7;
      border: none;

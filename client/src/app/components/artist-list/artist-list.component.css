@@ -98,6 +98,7 @@ padding-left: 3%;
     opacity: 0;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
+    width: 16%;
   }
 
   .caption h2 {
@@ -107,6 +108,9 @@ padding-left: 3%;
     font-weight: 900;
     font-family: 'Lato', sans-serif;
     letter-spacing: 1px;
+    white-space: normal !important;
+    word-wrap: break;
+  width: 100%;
   }
 
   .caption h2:hover {

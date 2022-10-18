@@ -152,6 +152,8 @@
 .infoAlbum{
   line-height: 23px;
   color: #6E6D70;
+  white-space: normal !important;
+  word-wrap: break;
 }
 
 .captionAlbum:hover{

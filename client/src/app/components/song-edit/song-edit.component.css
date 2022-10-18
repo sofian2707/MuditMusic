@@ -21,6 +21,9 @@ form{
  padding:0px 10px; 
 }
 
+form span{
+  color: rgb(120, 4, 4);
+}
 .fullUser{
   padding-top:5%;
   min-height: 90vh;
