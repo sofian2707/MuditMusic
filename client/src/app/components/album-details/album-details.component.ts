@@ -8,6 +8,8 @@ import { SongService } from 'src/app/services/song.service';
 import { Song } from 'src/app/models/song';
 import { ArtistService } from 'src/app/services/artist.service';
 import { Artist } from 'src/app/models/artist';
+import { error } from 'jquery';
+import { FavsongService } from 'src/app/services/favsong.service';
 
 @Component({
   selector: 'app-album-details',
@@ -17,8 +19,9 @@ import { Artist } from 'src/app/models/artist';
 })
 export class AlbumDetailsComponent implements OnInit {
   public album!: Album;
+  public favsong!: [];
 	public songs!: Song[];
-  	public artist!: Artist;
+  public artist!: Artist;
 	public albums!: Album[];
 	public identity;
 	public token;
@@ -32,7 +35,9 @@ export class AlbumDetailsComponent implements OnInit {
 		private userService: UserService,
 		private albumService: AlbumService,
     private SongService: SongService,
-    private ArtistService: ArtistService
+    private ArtistService: ArtistService,
+    private FavSongService: FavsongService
+  
   ) {
     this.identity = this.userService.getIdentity();
 		this.token = this.userService.getToken();
@@ -156,6 +161,32 @@ export class AlbumDetailsComponent implements OnInit {
       document.getElementById('play-image-album')!.setAttribute('src', image_path);
 
   }
+
+  
+  
+  onAddFavoriteSong(id:any){
+    const token = this.token;
+    this.FavSongService.addFavoriteSong(this.token, id).subscribe({
+      next: (response) => { 
+        if(!response.favSong){
+          alert('Error en el servidor');
+        }else{
+         this.favsong = response.favSong; 
+         console.log(response)
+        }
+      },
+      error: (error) => {
+        var alertMessage:any = error;
+        if(alertMessage != null){
+          this.alertMessage = error;
+          console.log(alertMessage);
+        }
+       }
+  });
+  }
+
+ 
+  
 
 }
 

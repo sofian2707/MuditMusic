@@ -22,6 +22,9 @@ import { AlbumDetailsComponent } from './components/album-details/album-details.
 import { SongEditComponent } from './components/song-edit/song-edit.component';
 import { SongAddComponent } from './components/song-add/song-add.component';
 import { PlayerComponent } from './components/player/player.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { PlayerComponent } from './components/player/player.component';
     AlbumDetailsComponent,
     SongEditComponent,
     SongAddComponent,
-    PlayerComponent
+    PlayerComponent,
+    SearcherComponent,
+    FavoritesComponent,
+   
     
   ],
   imports: [

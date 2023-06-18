@@ -77,6 +77,7 @@ function getAlbums(req, res){
     });
 }
 
+//actualizar album
 function updateAlbum(req, res){
     var albumId = req.params.id;
     var update = req.body;
@@ -122,7 +123,7 @@ function deleteAlbum(req, res){
     });
 }
 
-
+//cargar imagen 
 function uploadImage(req, res){
     var albumId = req.params.id;
     var file_name = 'No subido..';
@@ -153,6 +154,8 @@ function uploadImage(req, res){
 }
 
 
+
+//obtener imagen 
 function getImageFile(req, res){
     //recuperar parametro que llega por url
     var imageFile = req.params.imageFile;

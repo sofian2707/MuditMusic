@@ -3,10 +3,8 @@
     margin-left:17%; 
     padding:0px 0px; 
     height: 90vh;
-    
     overflow-y: auto; 
     scroll-behavior: smooth;
-
 }
 
 
@@ -24,13 +22,12 @@ flex-direction : row;
 padding-bottom: 4%;
 margin-bottom: 6%;
 background-image: linear-gradient(360deg,  rgb(16, 15, 15) 0, rgb(39, 36, 36) 30%, #f6f6fa8c 100%);
-
 }
+
 
 .album{
   height: 35vh; 
   width: 37vh;
-
 }
 
 .textAlbum{
@@ -39,13 +36,12 @@ background-image: linear-gradient(360deg,  rgb(16, 15, 15) 0, rgb(39, 36, 36) 30
     padding-left: 1%;
     color:white;
     word-wrap: break-word;
-
+    padding-top: 65px;
 }
 
 .textAlbum h1{
-    font-size: 4em;
-    margin-top: 2%;
-    
+    font-size: 3em;
+   
 }
 
 .complete{
@@ -97,7 +93,7 @@ table {
   }
   
   thead th:nth-child(3) {
-    width: 55%;
+    width: 19%;
   }
   
   thead th:nth-child(4) {

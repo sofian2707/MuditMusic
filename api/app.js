@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 //Cargar librerias 
 var express = require('express');
 var cors = require('cors');
@@ -11,6 +13,8 @@ var user_routes = require('./routes/user');
 var artist_routes = require('./routes/artist');
 var album_routes = require('./routes/album');
 var song_routes = require('./routes/song');
+var favsong_routes = require('./routes/favsong');
+
 
 app.use(cors({
     origin: '*',
@@ -41,5 +45,7 @@ app.use('/api', user_routes);
 app.use('/api', artist_routes);
 app.use('/api', album_routes);
 app.use('/api', song_routes);
+app.use('/api', favsong_routes);
+
 
 module.exports = app;

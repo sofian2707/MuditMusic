@@ -241,3 +241,18 @@
     height: 10%;
     text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+    /* Media query para pantallas de hasta 768px de ancho */
+    #navbarLi a {
+      font-size: 0.9em; /* Tamaño de fuente reducido */
+    }
+  }
+
+  @media screen and (max-width: 980px) {
+    /* Media query para pantallas de hasta 768px de ancho */
+    #navbarLi a {
+      font-size: 1.4em; /* Tamaño de fuente reducido */
+    }
+    
+  }

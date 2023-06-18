@@ -7,6 +7,12 @@ var mongoosePaginate = require('mongoose-pagination');
 var Artist = require('../models/artist');
 var Album = require('../models/album');
 var Song = require('../models/song');
+var FavSong = require('../models/favsong');
+
+
+
+
+
 
 function getSong(req, res){
     var songId = req.params.id;
@@ -23,6 +29,8 @@ function getSong(req, res){
         }
     });
 }
+
+
 
 function getSongs(req, res){
     var albumId = req.params.album;
@@ -54,6 +62,8 @@ function getSongs(req, res){
 }
 
 
+
+
 function saveSong(req, res){
     var song = new Song();
 
@@ -78,6 +88,8 @@ function saveSong(req, res){
 }
 
 
+
+
 function updateSong(req, res){
     var songId = req.params.id;
     var update = req.body;
@@ -93,6 +105,8 @@ function updateSong(req, res){
         }
     });
 }
+
+
 
 
 function deleteSong(req, res){
@@ -155,10 +169,6 @@ function getSongFile(req, res){
   }
    
 }
-
-
-
-
 
 
 
