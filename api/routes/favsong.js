@@ -23,6 +23,8 @@ api.post('/favorite/:id', md_auth.ensureAuth, FavSongController.saveFavoriteSong
 // Ruta para obtener las canciones favoritas de un usuario
 api.get('/favorite-songs', md_auth.ensureAuth, FavSongController.getFavoriteSongs);
 
+// Ruta para eliminar una canción favorita
+api.delete('/favorite/:id', md_auth.ensureAuth, FavSongController.deleteFavoriteSong);
 
 
 module.exports = api;

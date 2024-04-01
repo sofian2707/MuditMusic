@@ -24,49 +24,58 @@ res.status(200).send({
 
 
 
-function saveUser(req, res){
+function saveUser(req, res) {
     var user = new User();
-
-    //params es igual cuerpo de la peticion datos que llegan de post
     var params = req.body;
-
+  
     console.log(params);
-
+  
     user.name = params.name;
     user.surname = params.surname;
     user.email = params.email;
     user.role = 'ROLE_USER';
     user.image = 'null';
-
-    if(params.password){
-        //encriptar contraseña y guardar datos 
-        bcrypt.hash(params.password, null, null, function(err,hash){
-        user.password = hash;
-        
-        if(user.name != null && user.surname != null && user.email != null){
-              //guardar el usuario
-              user.save((err, userStored) =>{
-                if(err){
-                    res.status(500).send({message: 'Error al guardar el usuario'});
-                }else{
-                    if(!userStored){
-                        res.status(404).send({message: 'No se ha registrado el usuario'});
-                    }else{
-                        res.status(200).send({user: userStored});
+  
+    if (params.password) {
+      // Verificar si el correo electrónico ya está registrado
+      User.findOne({ email: params.email.toLowerCase() }, (err, existingUser) => {
+        if (err) {
+          res.status(500).send({ message: 'Error en la petición' });
+        } else {
+          if (existingUser) {
+            // El correo electrónico ya está registrado
+            res.status(200).send({ message: 'El correo electrónico ya está registrado' });
+          } else {
+            // El correo electrónico no está registrado, continuar con el registro
+            // Encriptar contraseña y guardar datos
+            bcrypt.hash(params.password, null, null, function (err, hash) {
+              user.password = hash;
+  
+              if (user.name && user.surname && user.email) {
+                // Guardar el usuario
+                user.save((err, userStored) => {
+                  if (err) {
+                    res.status(500).send({ message: 'Error al guardar el usuario' });
+                  } else {
+                    if (!userStored) {
+                      res.status(404).send({ message: 'No se ha registrado el usuario' });
+                    } else {
+                      res.status(200).send({ user: userStored });
                     }
-                }
-              })
-        }else{
-            res.status(200).send({message: 'Rellena todos los campos'});
+                  }
+                });
+              } else {
+                res.status(200).send({ message: 'Rellena todos los campos' });
+              }
+            });
+          }
         }
-        });
-
-    }else{
-        res.status(200).send({message: 'Introduce la contraseña'})
+      });
+    } else {
+      res.status(200).send({ message: 'Introduce la contraseña' });
     }
-
-}
-
+  }
+  
 
 
 //autenticacion de usuario 
@@ -152,7 +161,7 @@ function uploadImage(req, res){
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 
-        if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif'){
+        if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif' || file_ext == 'jpeg'){
             User.findByIdAndUpdate(userId, {image: file_name}, (err, userUpdate) =>{
                 if(!userUpdate){
                     res.status(404).send({message: 'No se ha podido actualizar el usuario'});
@@ -186,6 +195,8 @@ function getImageFile(req, res){
 }
 
 
+
+
 /* Exportación de las funciones para ser utilizadas en otros archivos. */
 module.exports = {
    pruebas,
@@ -193,5 +204,6 @@ module.exports = {
    loginUser,
    updateUser,
    uploadImage,
-   getImageFile
+   getImageFile,
+  
 };

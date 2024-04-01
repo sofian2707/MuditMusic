@@ -11,7 +11,7 @@ import { Song } from '../models/song';
 })
 export class FavsongService {
   public url: string;
-  
+
 
   constructor(private http: HttpClient) {
     this.url = GLOBAL.url;
@@ -19,6 +19,7 @@ export class FavsongService {
 
 
 addFavoriteSong(token: any, id: string): Observable<any> {
+
   let headers = new HttpHeaders();
   headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
   let options = { headers: headers };
@@ -34,6 +35,16 @@ getFavoriteSongs(token: any): Observable<any> {
 
   return this.http.get(this.url + '/favorite-songs', options);
 }
+
+
+deleteFavoriteSong(token: any, id: string): Observable<any> {
+  let headers = new HttpHeaders();
+  headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization', token);
+  let options = { headers: headers };
+
+  return this.http.delete(this.url + '/favorite/' + id, options);
+}
+
 
 
 

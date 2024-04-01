@@ -5,37 +5,39 @@ import { GLOBAL } from 'src/app/services/global';
 import { Artist } from '../../models/artist';
 
 @Component({
-  selector: 'player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+	selector: 'player',
+	templateUrl: './player.component.html',
+	styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  public url: string;
+	public url: string;
 	public song!: Song;
 	public artist!: Artist;
 	public album!: Album;
 	public show: boolean;
 
-	constructor(){
+	constructor() {
 		this.url = GLOBAL.url;
 		this.show = false;
+		
 	}
 
-  ngOnInit(): void {
+	ngOnInit(): void {
 
-    var song = JSON.parse(localStorage.getItem('sound_song')!);
+		var song = JSON.parse(localStorage.getItem('sound_song')!);
+		console.log(song)
 
-song.forEach((object: any) =>{
-    console.log(song);
-});
+		song.forEach((object: any) => {
+			
+		});
 
-		if(song){
+		if (song) {
 			this.song = song;
-			this.show= true;
-		}else{
-			this.song = new Song('',1, "","","","");
+			this.show = true;
+		} else {
+			this.song = new Song('', 1, "", "", "", "");
 		}
-		
-  }
+
+	}
 
 }

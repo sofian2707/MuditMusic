@@ -242,6 +242,18 @@
     text-align: center;
 }
 
+.forgot{
+    padding-left: 20%;
+    color:#eee;
+}
+
+.forgot:hover{
+color: #908d8d;
+cursor: pointer;
+
+}
+
+
 @media screen and (max-width: 768px) {
     /* Media query para pantallas de hasta 768px de ancho */
     #navbarLi a {
@@ -256,3 +268,4 @@
     }
     
   }
+

@@ -1,50 +1,58 @@
 <section class="full">
-
+    <!-- Portada del álbum -->
     <div class="portada">
-        <div class="album">
-            <img class="albumImg" src="https://i.postimg.cc/02QvSZW0/liked.png" />
-        </div>
-
-        <div class="textAlbum" >
-            
-            <p style="font-weight: bolder;">ALBUM </p>
-            <h1  style="font-weight: bolder;">TUS CANCIONES FAVORITAS</h1>
-            <p class="description"> Usuario • Cantidad</p>
-        </div>
+      <div class="album">
+        <img class="albumImg" src="https://i.postimg.cc/02QvSZW0/liked.png" />
+      </div>
+  
+      <div class="textAlbum">
+        <!-- Información del álbum -->
+        <p style="font-weight: bolder;">ALBUM </p>
+        <h1 style="font-weight: bolder;">TUS CANCIONES FAVORITAS</h1>
+        <p class="description"> Usuario • Cantidad</p>
+      </div>
     </div>
-
+  
     <div class="complete">
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">#</th>
-                        <th scope="col">TITULO</th>
-                        <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="white" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8zm-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72z"/></svg></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let song of favsong" >
-                        <th scope="row" class="play">
-                            <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                            </svg>
-                        </th>
-                        <th scope="row">{{song.song.number}}</th>
-                        <td style="font-size: 18px;">{{song.song.name}}<p style="font-size: 13px;">{{artist.name}}</p></td>
-                        <td>{{song.song.duration}}</td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary" >Eliminar de favoritos</button>
-                              </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">#</th>
+              <th scope="col">TITULO</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Iteración sobre las canciones favoritas -->
+            <tr *ngFor="let song of favsong">
+              <th scope="row" class="play">
+                <!-- Icono de reproducción -->
+                <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16"(click)="startPlayer(song.song)">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                </svg>
+              </th>
+              <th scope="row">{{ song.song.number }}</th>
+              <td style="font-size: 18px;">{{ song.song.name }}
+                <p style="font-size: 13px;">{{ artist.name }}</p>
+              </td>
+              <td>{{ song.song.duration }}</td>
+              <td>
 
-        </div>
+                <!-- Botón para eliminar de favoritos -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-secondary" (click)="onDeleteFavSong(song.song._id)">Eliminar de favoritos</button>
+                </div>
+               
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</section>
+  </section>
+  

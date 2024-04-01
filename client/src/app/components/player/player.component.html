@@ -1,7 +1,6 @@
 <section >
     <div class="imgSong" *ngIf="show" >
         <img id="play-image-album"  src="{{ url + 'get-image-album/' + album.image }}" />
-        <p id="not-title" style="font-size: 50px; display: inline-block;">HOLA </p>
     </div>
 
     <div class="imgSong" *ngIf="!show"  >
@@ -17,7 +16,7 @@
 		</p>
        
         
-        <p id="play-song-artist"> {{album.artist}}</p>
+        <p id="play-song-artist" > {{album.artist}}</p>
     </div>
 
     <div class="audio-file">

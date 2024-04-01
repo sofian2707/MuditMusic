@@ -61,17 +61,6 @@
         </a>
       </li>
 
-      <li id='navbarLi'>
-        <a class="item" href="" [routerLink]="['/buscar']" [routerLinkActive]="['actived']">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 1664 1664">
-            <path fill="currentColor"
-              d="M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90z" />
-          </svg>
-          Buscar
-        </a>
-      </li>
-
 
       <li class="dropdown" id='navbarLi'>
 
@@ -125,69 +114,79 @@
 
 <!--INICIAR SESION Y REGISTRO -->
 
-
+<!-- Sección de inicio de sesión y registro -->
 <section class="body" *ngIf="!identity">
   <div class="main">
     <input type="checkbox" id="chk" aria-hidden="true">
 
+    <!-- Formulario de inicio de sesión -->
     <div class="signup">
       <form class="loginn" #loginForm="ngForm" (ngSubmit)="onSubmit()">
         <label for="chk" aria-hidden="true" style="font-size: 60px;">Musify</label>
+
+        <!-- Manejo de errores -->
         <div *ngIf="errorMessage">
           <div class="alert alert-danger" role="alert">
             <strong>Error: </strong>{{errorMessage.error.message}}
           </div>
         </div>
+
+        <!-- Campo de correo electrónico -->
         <input type="email" #email="ngModel" [(ngModel)]="user.email" name="email" aria-describedby="emailHelp"
           placeholder="Email" required>
         <span *ngIf="!email.valid && (email.dirty || email.touched)"> Email obligatorio *</span>
 
+        <!-- Campo de contraseña -->
         <input type="password" placeholder="Contraseña" #password="ngModel" name="password" [(ngModel)]="user.password"
           required>
         <span *ngIf="!password.valid && (password.dirty || password.touched)"> Ingrese la contraseña *</span>
 
-
-        <button type="submit">Iniciar sesion</button>
+    
+        <!-- Botón de inicio de sesión -->
+        <button type="submit">Iniciar sesión</button>
       </form>
     </div>
 
+    <!-- Formulario de registro -->
     <div class="login">
       <form class="loginn" #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
         <label for="chk" aria-hidden="true"  style="font-size: 50px;">Registrarme</label>
 
+        <!-- Mensaje de registro -->
         <div *ngIf="alertRegister">
           <p class="alert alert-primary" role="alert">
             {{alertRegister}}
           </p>
         </div>
 
+        <div *ngIf="errorRegister">
+          <div class="alert alert-danger" role="alert">
+            {{errorRegister}}
+          </div>
+        </div>
+
+        <!-- Campo de nombre -->
         <input type="text" placeholder="Nombre" #name="ngModel" [(ngModel)]="user_register.name" name="name" required>
         <span *ngIf="!name.valid && (name.dirty || name.touched)"> Nombre obligatorio</span>
 
-        <input type="text" placeholder="apellido" #surname="ngModel" [(ngModel)]="user_register.surname" name="surname"
+        <!-- Campo de apellido -->
+        <input type="text" placeholder="Apellido" #surname="ngModel" [(ngModel)]="user_register.surname" name="surname"
           required>
         <span *ngIf="!surname.valid && (surname.dirty || surname.touched)"> Apellido obligatorio</span>
 
-        <input type="email" #emailr="ngModel" [(ngModel)]="user_register.email" name="email" placeholder="email"
+        <!-- Campo de correo electrónico -->
+        <input type="email" #emailr="ngModel" [(ngModel)]="user_register.email" name="email" placeholder="Email"
           required>
         <span *ngIf="!emailr.valid && (emailr.dirty || emailr.touched)"> Email obligatorio</span>
 
-        <input type="password" placeholder="contraseña" #passwordr="ngModel" name="password"
+        <!-- Campo de contraseña -->
+        <input type="password" placeholder="Contraseña" #passwordr="ngModel" name="password"
           [(ngModel)]="user_register.password" required>
         <span *ngIf="!passwordr.valid && (passwordr.dirty || passwordr.touched)"> Contraseña obligatoria</span>
 
-
-
+        <!-- Botón de registro -->
         <button type="submit">Registrarme</button>
       </form>
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-

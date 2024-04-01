@@ -12,8 +12,6 @@ var FavSong = require('../models/favsong');
 
 
 
-
-
 function getSong(req, res){
     var songId = req.params.id;
 

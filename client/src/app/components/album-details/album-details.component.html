@@ -1,20 +1,29 @@
 <section class="full">
 
+    <div class="alert alert-light fade show" role="alert" *ngIf="Alerta" [ngClass]="{'fade-in': Alerta}">
+        Cancion agregada a favoritos
+    </div>
+    <div class="alert alert-danger fade show" role="alert" *ngIf="Alertaexist" [ngClass]="{'fade-in': Alertaexist}">
+        Esta cancion ya existe en favoritos
+    </div>
+
+
     <div class="portada" *ngIf="album">
         <div class="album">
             <img class="albumImg" src="{{ url + 'get-image-album/' + album.image }}" />
         </div>
 
-        <div class="textAlbum" >
-            
+        <div class="textAlbum">
+
             <p style="font-weight: bolder;">ALBUM </p>
-            <h1  style="font-weight: bolder;">{{album.title}}</h1>
+            <h1 style="font-weight: bolder;">{{album.title}}</h1>
             <p class="description"> {{album.description}}</p>
-            <div >
+            <div>
                 <img class="artistImage" src="{{ url + 'get-image-artist/' + artist.image }}">
-                 <p style="display: inline; padding-left: 1%;  font-size: 1vw;"><a class="artistName"[routerLink]="['/artista', artist._id]" >{{artist.name}}</a> • {{album.year}}</p>
+                <p style="display: inline; padding-left: 1%;  font-size: 1vw;"><a class="artistName"
+                        [routerLink]="['/artista', artist._id]">{{artist.name}}</a> • {{album.year}}</p>
             </div>
-            
+
 
         </div>
 
@@ -22,7 +31,7 @@
     </div>
     <div class="complete">
         <div class="admin" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
-            <button class="button-12" role="button" [routerLink]="['/crear-tema', album._id]" >Añadir Cancion</button>
+            <button class="button-12" role="button" [routerLink]="['/crear-tema', album._id]">Añadir Cancion</button>
         </div>
         <div>
             <table>
@@ -31,31 +40,45 @@
                         <th scope="col"></th>
                         <th scope="col">#</th>
                         <th scope="col">TITULO</th>
-                        <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="white" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8zm-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72z"/></svg></th>
-                        <th *ngIf="identity && identity.role == 'ROLE_ADMIN'"  scope="col"></th>
+                        <th scope="col"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="white"
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8zm-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72z" />
+                            </svg></th>
+                        <th *ngIf="identity && identity.role == 'ROLE_ADMIN'" scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let song of songs">
                         <th scope="row" class="play">
-                            <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16" (click)="startPlayer(song)">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                                
-                              </svg>
+                            <svg class="iconplay" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16"
+                                (click)="startPlayer(song)">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+
+                            </svg>
                         </th>
                         <th scope="row">{{song.number}}</th>
-                        <td style="font-size: 18px; ">{{song.name}} <p style="font-size: 13px;">{{artist.name}}</p></td>
-                        <td>{{song.duration}}</td>
-                        <td ><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill="white" d="M17.869 3.889c-2.096 0-3.887 1.494-4.871 2.524c-.984-1.03-2.771-2.524-4.866-2.524C4.521 3.889 2 6.406 2 10.009c0 3.97 3.131 6.536 6.16 9.018c1.43 1.173 2.91 2.385 4.045 3.729c.191.225.471.355.765.355h.058c.295 0 .574-.131.764-.355c1.137-1.344 2.616-2.557 4.047-3.729C20.867 16.546 24 13.98 24 10.009c0-3.603-2.521-6.12-6.131-6.12z" (click)="onAddFavoriteSong(song._id)" /></svg></td>
+                        <td style="font-size: 18px; ">{{song.name}} <p style="font-size: 13px;">{{artist.name}}</p>
+                        </td>
+                        <td class="duration">{{song.duration}}</td>
+                        <td><svg [ngClass]="{'rosado': isFavorite}" class="corazon" xmlns="http://www.w3.org/2000/svg"
+                                width="26" height="26" viewBox="0 0 26 26">
+                                <path
+                                    d="M17.869 3.889c-2.096 0-3.887 1.494-4.871 2.524c-.984-1.03-2.771-2.524-4.866-2.524C4.521 3.889 2 6.406 2 10.009c0 3.97 3.131 6.536 6.16 9.018c1.43 1.173 2.91 2.385 4.045 3.729c.191.225.471.355.765.355h.058c.295 0 .574-.131.764-.355c1.137-1.344 2.616-2.557 4.047-3.729C20.867 16.546 24 13.98 24 10.009c0-3.603-2.521-6.12-6.131-6.12z"
+                                    (click)="onAddFavoriteSong(song._id)" />
+                            </svg></td>
                         <td *ngIf="identity && identity.role == 'ROLE_ADMIN'">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary" [routerLink]="['/editar-tema', song._id]">Editar</button>
-                                <button type="button" class="btn btn-secondary" (click)="onDeleteConfirm(song._id)" >Eliminar</button>
-                              </div>
+                                <button type="button" class="btn btn-secondary"
+                                    [routerLink]="['/editar-tema', song._id]">Editar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    (click)="onDeleteConfirm(song._id)">Eliminar</button>
+                            </div>
 
-
-                              <div class="seguro" *ngIf="confirmado == song._id">
+                            <div class="seguro" *ngIf="confirmado == song._id">
                                 <a (click)="onDeleteSong(song._id)" class="btn btn-sm btn-danger">
                                     Eliminar
                                 </a>
@@ -64,7 +87,7 @@
                                 </a>
                             </div>
 
-                            
+
                         </td>
                     </tr>
                 </tbody>
