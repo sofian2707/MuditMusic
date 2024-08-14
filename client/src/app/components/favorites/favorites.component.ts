@@ -54,30 +54,24 @@ export class FavoritesComponent implements OnInit {
 
 
   getFavoriteSongs() {
-    // Obtén el token de autenticación
     const token = this.token;
   
-    // Obtén las canciones favoritas del usuario
     this.FavSongService.getFavoriteSongs(token).subscribe({
       next: (response) => {
         this.favsong = response.favoriteSongs;
   
         // Itera sobre cada objeto de canción favorita
         this.favsong.forEach((songObj: any) => {
-          // Obtiene el ID del álbum de la canción actual
           const albumId = songObj.song.album;
   
-          // Obtiene los detalles del álbum correspondiente al ID
           this.AlbumService.getAlbum(this.token, albumId).subscribe({
             next: (response) => {
               if (response.album) {
                 const album = response.album;
   
-                // Guarda el artista del álbum en la propiedad artist del objeto songObj
-                this.artist = album.artist;
-                this.albumImage = album.image;
-    
-                
+                // Asigna el artista y la imagen del álbum directamente a la canción
+                songObj.song.artist = album.artist;  // Cambia 'artist' a 'song.artist'
+                songObj.song.albumImage = album.image;  // Cambia 'albumImage' a 'song.albumImage'
               } else {
                 console.log('No se encontró el álbum');
               }
@@ -101,6 +95,7 @@ export class FavoritesComponent implements OnInit {
       }
     });
   }
+  
   
 
 
@@ -129,28 +124,25 @@ export class FavoritesComponent implements OnInit {
 
 
 
-  startPlayer(song:any){
-    
+    startPlayer(song: any) {
       let song_player = JSON.stringify(song);
-      let artist_song = JSON.stringify(this.artist);
+      let artist_song = JSON.stringify(song.artist);
       let file_path = this.url + 'get-file-song/' + song.file;
-      let image_path = this.url + 'get-image-album/' + this.albumImage;
+      let image_path = this.url + 'get-image-album/' + song.albumImage;
     
       localStorage.setItem('sound_song', song_player);
       localStorage.setItem('artist_song', artist_song);
-
+    
       document.getElementById("mp3-source")!.setAttribute("src", file_path);
       (document.getElementById("player") as any).load();
       (document.getElementById("player") as any).play();
-
+    
       document.getElementById('play-song-title')!.innerHTML = song.name;
       document.getElementById('not-title')!.innerHTML = "";
-      document.getElementById('play-song-artist')!.innerHTML = this.artist.name;
+      document.getElementById('play-song-artist')!.innerHTML = song.artist.name;
       document.getElementById('play-image-album')!.setAttribute('src', image_path);
-
-  }
-
-
+    }
+    
 
 
 

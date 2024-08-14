@@ -8,6 +8,7 @@ var jwt = require('jwt-simple');
 var moment = require('moment');
 var secret = 'clave_secreta_curso';
 
+
 /* Función para crear un token con la información del usuario. 
 Exporta la función createToken para que pueda ser utilizada en otros módulos.
 La función toma como parámetro un objeto user que contiene la información del usuario.

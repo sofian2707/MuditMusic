@@ -28,9 +28,12 @@ padding-top: 5px;
 }
 
 #play-song-title{
-    white-space: normal !important;
-    word-wrap: break;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
     line-height: 15px;
+    font-size: 14px; 
+    max-width: 100%; 
 }
 
 .imgSong{
@@ -51,12 +54,15 @@ width: 78%;
 
 }
 
-#play-image-album{
-    padding-top: 5px;
-    width: 7%;
-    height: 6%;
-    object-fit: contain;
+#play-image-album {
+    margin-top: 4%;
+    width: 50px; /* Tamaño fijo en ancho */
+    height: 50px; /* Tamaño fijo en alto */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+    overflow: hidden; /* Oculta cualquier parte que sobresalga */
+    border-radius: 5px; /* Opcional: si quieres esquinas redondeadas */
 }
+
 
 audio{
     width: 100%;

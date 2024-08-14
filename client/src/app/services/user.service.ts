@@ -51,6 +51,7 @@ updateUser(user_to_update: any): Observable<any>{
 }
    
 
+
   //OBTENER IDENTIDAD
     getIdentity(){
       let identity = JSON.parse(localStorage.getItem('identity')!);

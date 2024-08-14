@@ -162,13 +162,6 @@ table {
     fill: pink;
   }
 
-  .corazon ::before{
-    fill: pink;
-  }
-
-  .rosado path {
-    fill: pink;
-  }
 
   @media screen and (max-width: 1227px) {
     .duration{
