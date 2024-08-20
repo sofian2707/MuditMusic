@@ -36,6 +36,14 @@ public alertMessage: any;
 
   ngOnInit(): void {
   }
+
+  validateDuration(value: string): void {
+    const regex = /^([0-5]?[0-9]):([0-5][0-9])$/;
+    if (!regex.test(value)) {
+      // Aquí puedes manejar errores personalizados o formatear el valor.
+    }
+  }
+  
   
   onSubmit() {
     this.route.params.forEach((params: Params) => {

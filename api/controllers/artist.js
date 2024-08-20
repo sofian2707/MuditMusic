@@ -92,39 +92,53 @@ function updateArtist(req, res){
     });
 }
 
-//Eliminar artista
-function deleteArtist(req, res){
+function deleteArtist(req, res) {
     var artistId = req.params.id;
+
+    // Primero, eliminamos al artista
     Artist.findByIdAndRemove(artistId, (err, artistRemoved) => {
-        if(err){
-            res.status(500).send({message: 'Error al eliminar el artista'});
-        }else{
-            if(!artistRemoved){
-                res.status(404).send({message: 'El artista no ha sido eliminado'});
-            }else{
-                Album.find({artist: artistRemoved._id}).remove((err, albumRemoved) =>{
-                    if(err){
-                        res.status(500).send({message: 'Error al eliminar el album'});
-                    }else{
-                        if(!albumRemoved){
-                            res.status(404).send({message: 'El album no ha sido eliminado'});
-                        }else{
-                            Song.find({artist: albumRemoved._id}).remove((err, songRemoved) =>{
-                                if(err){
-                                    res.status(500).send({message: 'Error al eliminar la cancion'});
-                                }else{
-                                    if(!songRemoved){
-                                        res.status(404).send({message: 'La cancion no ha sido eliminada'});
-                                    }else{
-                                        res.status(200).send({artistRemoved});
-                                    }
-                                }
-                            });
-                        }
+        if (err) {
+            return res.status(500).send({message: 'Error al eliminar el artista'});
+        }
+        if (!artistRemoved) {
+            return res.status(404).send({message: 'El artista no ha sido eliminado'});
+        }
+
+        // Luego, eliminamos los álbumes del artista eliminado
+        Album.find({ artist: artistRemoved._id }, (err, albums) => {
+            if (err) {
+                return res.status(500).send({message: 'Error al buscar álbumes'});
+            }
+
+            // Si hay álbumes, eliminamos las canciones asociadas
+            if (albums.length > 0) {
+                Song.deleteMany({ album: { $in: albums.map(album => album._id) } }, (err) => {
+                    if (err) {
+                        return res.status(500).send({message: 'Error al eliminar las canciones'});
                     }
+
+                    // Luego, eliminamos los álbumes
+                    Album.deleteMany({ artist: artistRemoved._id }, (err) => {
+                        if (err) {
+                            return res.status(500).send({message: 'Error al eliminar los álbumes'});
+                        }
+
+                        // Finalmente, respondemos con el artista eliminado
+                        res.status(200).send({artist: artistRemoved});
+                    });
+                });
+            } else {
+                // Si no hay álbumes, eliminamos directamente los álbumes
+                Album.deleteMany({ artist: artistRemoved._id }, (err) => {
+                    if (err) {
+                        return res.status(500).send({message: 'Error al eliminar los álbumes'});
+                    }
+
+                    // Finalmente, respondemos con el artista eliminado
+                    res.status(200).send({artist: artistRemoved});
                 });
             }
-        }
+        });
     });
 }
 

@@ -87,28 +87,24 @@ export class ArtistListComponent implements OnInit {
   }
 
   
-    onDeleteArtist(id:any){
-      this.ArtistService.deleteArtist(this.token, id).subscribe({
+  onDeleteArtist(id: any) {
+    this.ArtistService.deleteArtist(this.token, id).subscribe({
         next: (response) => { 
-          if(!response.artist){
-            this.getArtists();
-          }else{
-            console.log('Error en el servidor');
-          }
-            
-          
+            if (!response.artist) {
+                // Mostrar mensaje de error si no se eliminó el artista
+                console.log('Error en el servidor');
+            } else {
+                // Volver a obtener la lista de artistas
+                this.getArtists();
+            }
         },
         error: (error) => {
-          var alertMessage:any = error;
-          if(alertMessage != null){
             this.alertMessage = error;
-            console.log(alertMessage);
-          }
-         }
+            console.log(this.alertMessage);
+        }
     });
-    }
-  
-  
+}
+
 
 
 
